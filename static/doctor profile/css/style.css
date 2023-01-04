@@ -1,0 +1,425 @@
+:root {
+    --bg-color: #ffffff;
+    --main-color: #00507C;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.calenderr .conte {
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    z-index: -1;
+    border: 3px solid var(--main-color);
+    border-radius: 4%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media(max-width:650px) {
+    .calenderr .conte {
+        width: 66%;
+        left: 20%;
+        height: 93%;
+    }
+}
+
+@media(max-width:767px) {
+    .calenderr .conte {
+        width: 66%;
+        left: 20%;
+        height: 93%;
+    }
+}
+
+
+/* @media(max-width:992px) {
+    .calenderr .conte {
+        width: 58%;
+        left: 22%;
+        height: 100%;
+    }
+} */
+
+
+/* @media(max-width:1220px) {
+    .calenderr .conte {
+        width: 58%;
+        left: 22%;
+        height: 100%;
+    }
+}
+
+@media(max-width:1820px) {
+    .calenderr .conte {
+        width: 58%;
+        left: 22%;
+        height: 100%;
+    }
+} */
+
+.conte .text {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--main-color);
+}
+
+@media(max-width:767px) {
+    .conte .text {
+        text-align: center;
+        font-size: 10px;
+        font-weight: 600;
+        color: var(--main-color);
+    }
+}
+
+.conteainer {
+    width: 100%;
+    color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendar {
+    width: 44rem;
+    height: 32rem;
+    background-color: var(--bg-color);
+    color: #00507C;
+    font-size: 24px;
+    border: 2px solid var(--main-color);
+    margin-top: 0;
+}
+
+@media(max-width:767px) {
+    .calendar {
+        width: 26rem;
+        height: 36rem;
+    }
+}
+
+.month {
+    width: 100%;
+    height: 8rem;
+    background-color: var(--bg-color);
+    color: var(--main-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.month i {
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+.month h1 {
+    font-size: 3rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    margin-bottom: 1rem;
+}
+
+@media(max-width:767px) {
+    .month h1 {
+        font-size: 1.5rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        margin-bottom: 1rem;
+    }
+}
+
+.month p {
+    font-size: 1.6rem;
+}
+
+@media(max-width:767px) {
+    .month p {
+        font-size: 1.2rem;
+    }
+}
+
+.weekdays {
+    width: 100%;
+    height: 5rem;
+    padding: 0 0.4rem;
+    display: flex;
+    align-items: center;
+}
+
+@media(max-width:767px) {
+    .weekdays {
+        width: 100%;
+        height: 1rem;
+        padding: 0px 0.1rem;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.weekdays div {
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    width: calc(44.2rem / 7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media(max-width:767px) {
+    .weekdays div {
+        font-size: 12.5px;
+        letter-spacing: 0.1rem;
+    }
+}
+
+.days {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.2rem;
+}
+
+@media(max-width:767px) {
+    .days {
+        width: 101%;
+    }
+}
+
+.days div {
+    font-size: 1.4rem;
+    margin: 0.3rem;
+    width: calc(42.2rem / 19);
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.days div:hover:not(.today) {
+    background-color: var(--main-color);
+    cursor: pointer;
+    color: white;
+}
+
+.prev-date,
+.next-date {
+    opacity: 0.5;
+}
+
+.today {
+    background-color: #167e56;
+}
+
+.conte .info {
+    margin-left: 50px;
+    margin-top: 15px;
+}
+
+.conte .info h2 {
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--main-color);
+    text-transform: capitalize;
+}
+
+@media(max-width:767px) {
+    .conte .info h2 {
+        font-size: 20px;
+    }
+}
+
+
+/* Start select btn */
+
+.conte .select {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: center
+}
+
+.conte .select .button {
+    transition: all 0.5s ease;
+    cursor: pointer;
+    display: inline-block;
+    padding: 15px;
+    color: var(--main-color);
+    font-family: sans-serif;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-color: var(--bg-color);
+    margin-bottom: 20px;
+    border: 1px solid var(--main-color);
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+@media(max-width:767px) {
+    .conte .select .button {
+        font-size: 8px;
+        height: 29px;
+        width: 35%;
+        padding: 7px;
+    }
+}
+
+.conte .select .button.selected {
+    background-color: var(--main-color);
+    color: white;
+    font-size: 17px;
+    font-weight: 900;
+}
+
+@media(max-width:767px) {
+    .conte .select .button.selected {
+        font-size: 8px;
+        width: 72%;
+    }
+}
+
+@media (min-width: 650px) {
+    .conte .select .button:hover {
+        background-color: var(--main-color);
+        color: white;
+    }
+}
+
+.conte .info1 {
+    margin-left: 50px;
+}
+
+.conte .info1 .text1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--main-color);
+    text-transform: uppercase;
+}
+
+@media(max-width:767px) {
+    .conte .info1 .text1 {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--main-color);
+    }
+}
+
+.conte .info1 .text2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--main-color);
+}
+
+@media(max-width:767px) {
+    .conte .info1 .text2 {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--main-color);
+    }
+}
+
+.conte .select3 .button1 {
+    transition: all 0.5s ease;
+    cursor: pointer;
+    display: inline-block;
+    padding: 15px;
+    color: var(--main-color);
+    font-family: sans-serif;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-color: var(--bg-color);
+    margin-bottom: 20px;
+    border: 1px solid var(--main-color);
+    border-radius: 5px;
+    width: 30%;
+    text-align: center;
+    font-weight: 900;
+    font-size: 17px;
+}
+
+@media(max-width:767px) {
+    .conte .select3 .button1 {
+        font-size: 10px;
+        height: 24px;
+        width: 30%;
+        padding: 5px;
+    }
+}
+
+.conte .select3 .button1.selected1 {
+    background-color: var(--main-color);
+    color: white;
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.conte .select3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin-top: 12px;
+}
+
+@media (min-width: 650px) {
+    .conte .select3 .button1:hover {
+        background-color: var(--main-color);
+        color: white;
+    }
+}
+
+.conte .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 96%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.conte .btn button {
+    width: 100%;
+    height: 100%;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: var(--bg-color);
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    text-transform: capitalize;
+    transition: 0.5s;
+    border-radius: 7px;
+}
+
+@media(max-width:767px) {
+    .conte .btn button {
+        font-size: 18px;
+        width: 235px;
+        height: 33px;
+    }
+}
+
+.conte .btn:hover button {
+    background-color: var(--main-color);
+    color: white;
+    cursor: pointer;
+}
+
+
+/* End select btn */

@@ -1,0 +1,358 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Padge2</title>
+    <!-- Start links css -->
+    <link rel="stylesheet" href="{% static 'news/News2/css/all.min.css'%}">
+    <link rel="stylesheet" href="{% static 'news/News2/css/normalize.css'%}">
+    <!-- <link rel="stylesheet" href="{%static 'news/css/Styling.css'%}"> -->
+    <link rel="stylesheet" href="{% static 'news/News2/css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'news/News2/css/bootstrap.css'%}">
+    <!-- footer -->
+    <!-- <link rel="stylesheet" href="{% static 'news/News2/css/Stylett.css'%}"> -->
+    <link rel="stylesheet" href="{% static 'fontawesome-free-6.2.1-web/css/all.css'%}">
+
+    <script src="{% static 'news/News2/js/jquery-3.6.1.js'%}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="{% static 'news/News2/css/swiper-bundle.min.css'%}">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;900&family=Josefin+Sans:wght@300&family=Open+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,400;0,600;0,800;1,200;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Start Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;900&family=Josefin+Sans:wght@300&family=Open+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,400;0,600;0,800;1,200;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <!--Ends Google Fonts -->
+    <!-- Start icon awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- End icon awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <style>
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="container" style="max-width:100%;padding:0 8%;">
+        <div class="logo_cont">
+            {%if rs%}
+            <a href="{%url 'patientlogin:home' rs%}">
+                <div class="logo"></div>
+            </a>
+            {%else%}
+            <a href="{%url 'Home:Home'%}">
+                <div class="logo"></div>
+            </a>
+            {%endif%}
+            <div class="logoh1">
+                {%if rs%}
+                <h1><a href="{%url 'patientlogin:home' rs%}"> Med</a></h1>
+                <h2><a href="{%url 'patientlogin:home' rs%}">care</a></h2>
+                {%else%}
+                <h1><a href="{%url 'Home:Home' %}"> Med</a></h1>
+                <h2><a href="{%url 'Home:Home' %}">care</a></h2>
+                {%endif%}
+            </div>
+        </div>
+        <div class="headlinks">
+            <ul>
+                {%if rs%}
+                <li>
+                    <a href="{%url 'patientlogin:home' rs%}"><p> Home</p> </a>
+                </li>
+                <li>
+                    <a href="{% url 'patientlogin:cards' rs %}"><p> specialist</p></a>
+                </li>
+                {%else%}
+                <li><a href="{%url 'Home:Home'%}"><p>home</p></a></li>
+                <li>
+                    <a href="{%url 'patientlogin:cardsUnRe'%}"><p> specialist</p></a>
+                </li>
+                {%endif%}
+                
+                {%if rs%}
+                <li><a href="{%url 'ai:consult' rs%}">Consultation</a></li>
+                {%else%}
+                <li><a href="{%url 'ai:consultUN'%}">Consultation</a></li>
+                {%endif%}
+                
+                {% if rs %}
+                <li><a href="{%url 'reception:reception' rs%}">Profile</a></li>
+                <li><a href="{%url 'news:newsRE' rs%} "><p class="activated">News</p></a></li>
+                {%else%}
+                <li><a href="{%url 'news:news'%}"><p class="activated">News</p></a></li>
+                {%endif%}
+
+                <li><a href="#">Hospital</a></li>
+                
+            </ul>
+        </div>
+        <div class="btns-head">
+            {%if rs %}
+            <div class="btns-head proflink" style="font-size: 30px;"><a href="{%url 'reception:reception' rs%}"><i class="fa-solid fa-user"></i></a></div>
+            {%else%}
+            <div class="btn-signin btn">
+                <a href="{%url 'logincards:sigin' %}"> <input type="button" class="btn-signup btn" value="Sign-In"></a>
+            </div>
+            <div class="btn-signup btn">
+                <a href="{%url 'registeras:register' %}"> <input type="button" class="btn-signup btn" value="Sign-Up"></a>
+            </div>
+            {%endif%}
+        </div>
+    </header>
+
+    <!-- <section></section> -->
+    <!--End Header -->
+    <!-- Start landing -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                aria-label="Slide 5"></button>
+        </div>
+        <div class="carousel-inner car-iteam">
+            <div class="carousel-item active car-iteam">
+                <img src="{{newss.image.url}}" class="d-block w-100 img" alt="...">
+            </div>
+            <div class="carousel-item car-iteam">
+                <img src="{{newss.image.url}}" class="d-block w-100 img" alt="...">
+            </div>
+            <div class="carousel-item car-iteam">
+                <img src="{{newss.image.url}}" class="d-block w-100 img" alt="...">
+            </div>
+            <div class="carousel-item car-iteam">
+                <img src="{{newss.image.url}}" class="d-block w-100 img" alt="...">
+            </div>
+            <div class="carousel-item car-iteam">
+                <img src="{{newss.image.url}}" class="d-block w-100 img" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <!-- End landing -->
+    <!-- Start information -->
+    <div class="zkzk-flex">
+        <div class="section-3">
+            <div class="head">
+                <h1>{{newss.title}}</h1>
+            </div>
+            <div class="infoo">
+                <p> {{newss.description}}
+                </p>
+            </div>
+        </div>
+        
+        <!-- End Information -->
+        <!-- Start Swiper cards -->
+    
+        <div class="slide-container swiper">
+            <div class="slide-content">
+                <div class="card-wrapper swiper-wrapper" style="    height: 610px;">
+                    {% for s in new%}
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+    
+                            <div class="card-image">
+                                <img src="{{s.image.url}}" style="width: 110%;
+                                height: 120%;" alt="" class="card-img">
+                            </div>
+                        </div>
+    
+                        <div class="card-content">
+                            <h2 class="name">{{s.title}}</h2>
+                            <p class="description">{{s.subDiscribtion}}<a
+                                    href="#">SeeMore...</a></p>
+    
+                            <div class="card-btn">
+                                <div class="card-text">
+                                    <h4>{{s.timing}} <span><i class="fa-regular fa-clock-two"></i></span></h4>
+                                </div>
+                                {%if rs%}
+                                <a href="{% url 'news:detailRE' rs s.title %}"><button class=" button">see details</button></a>
+                                {%else%}
+                                <a href="{% url 'news:detail' s.title %}"><button class=" button">see details</button></a>
+                                {%endif%}
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+ 
+                </div>
+            </div>
+            <div class="swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev swiper-navBtn"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <!-- End swiper cards -->
+    </div>
+    
+
+
+    <!-- footer -->
+    <footer>
+        <div class="footer containerr">
+            <div class="left-foot">
+                <div class="logo_cont logo-foot">
+                    <a href="Home.html">
+                        <div class="logo logos-foot"></div>
+                    </a>
+                    <div class="logoh1">
+                        {%if rs%}
+                        <h1><a href="{%url 'patientlogin:home' rs%}"> Med</a></h1>
+                        <h2><a href="{%url 'patientlogin:home' rs%}">care</a></h2>
+                        {%else%}
+                        <h1><a href="{%url 'Home:Home' %}"> Med</a></h1>
+                        <h2><a href="{%url 'Home:Home' %}">care</a></h2>
+                        {%endif%}
+                    </div>
+                </div>
+                <p>This text is an example of text <br> that can <br> be replaced in the same space, this
+                </p>
+                <div class="contact-us">
+                    <h1>contact us</h1>
+                    <ul>
+                        <li>
+                            <a href="">
+                                <i class="fa-brands fa-facebook-f"></a></i>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa-brands fa-whatsapp"></a></i>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa-brands fa-twitter"></a></i>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa-brands fa-github"></a></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mid-foot">
+                <ul class="foot-links">
+                    {%if rs%}
+                    <li><a href="{%url 'patientlogin:home' rs%}">Home</a></li>
+                    <li><a href="{% url 'patientlogin:cards' rs %}">Specialities</a></li>
+                    <li><a href="{%url 'ai:consult' rs%}">Consultation</a></li>
+                    {%else%}
+                    <li><a href="{%url 'Home:Home'%}"> Home</a></li>
+                    <li><a href="{%url 'patientlogin:cardsUnRe'%}">Specialities</a></li>
+                    <li><a href="{%url 'ai:consultUN' %}">Consultation</a></li>
+                    {%endif%}
+                    
+                    {% if rs %}
+                    <li><a href="{%url 'reception:reception' rs%}">Profile</a></li>
+                    <li><a href="{%url 'news:newsRE' rs%} ">News</a></li>
+                    {%else%}
+                    <li><a href="{%url 'news:news'%}">News</a></li>
+                    {%endif%}
+                    <li><a href="#">Hospital</a></li>
+                </ul>
+            </div>
+            <div class="right-foot">
+                <h1>Download The App Now</h1>
+                <div class="down-foot">
+                    <div class="qr-codes"></div>
+                    <div class="download-cards">
+                        <div class="googleplay-card downcard">
+                            <div class="left-img-downcard">
+                                <img src="{% static 'news/News2/images/svgexport-6 (21) 1.png'%}" alt="">
+                            </div>
+                            <div class="right-text-downcard">
+                                <p>Get it on</p>
+                                <h1>google play</h1>
+                            </div>
+                        </div>
+                        <div class="apple-card downcard">
+                            <div class="left-img-downcard">
+                                <img src="{% static 'news/News2/images/svgexport-6 (24) 1.png'%}" alt="">
+                            </div>
+                            <div class="right-text-downcard">
+                                <p>downlaod on the</p>
+                                <h1>app store</h1>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        <hr class="line">
+        <span class="copy-right">2022 medcare .all rights reserved</span>
+    </footer >
+
+
+
+    <script src="{% static 'news/News2/js/popper.min.js'%}"></script>
+    <script src="{% static 'news/News2/js/bootstrap.js'%}"></script>
+    <script src="{% static 'news/News2/js/swiper-bundle.min.js'%}"></script>
+    <script>
+        var swiper = new Swiper(".slide-content", {
+            slidesPerView: 3,
+            spaceBetween: 25,
+            loop: true,
+            centerSlide: 'true',
+            fade: 'true',
+            grabCursor: 'true',
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                dynamicBullets: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                },
+                520: {
+                    slidesPerView: 2,
+                },
+                950: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+    </script>
+
+    <script scr="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+</body>
+
+</html>

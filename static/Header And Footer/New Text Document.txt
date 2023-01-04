@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'Home/CSS/all.min.css'%}">
+    <!-- <link rel="stylesheet" href="{% static 'Home/cssHeader/all.min.css'%}">
+    <link rel="stylesheet" href="{% static 'Home/cssHeader/normalize.css'%}"> -->
+    <!-- <link rel="stylesheet" href="{% static 'Home/cssHeader/constant.css'%}"> -->
+    <link rel="stylesheet" href="{% static 'Home/CSS/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'Home/CSS/Style.css'%}">
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;900&family=Josefin+Sans:wght@300&family=Open+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,400;0,600;0,800;1,200;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static '/Home/CSS/swiper-bundle.min.css'%}">
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;900&family=Josefin+Sans:wght@300&family=Open+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,400;0,600;0,800;1,200;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'Home/fontawesome-free-6.2.0-web/css/all.css'%}">
+</head>
+
+<body>
+    
+    <form method="POST">
+        {% csrf_token %}
+    <header class="container">
+        <div class="logo_cont">
+            
+               <div class="logo">
+                <!-- <img src="{%static 'Home/imgs/6 2[Converted] 1.png' %}" alt=""> -->
+                </div>
+        
+            <div class="logoh1">
+                {%if rs%}
+                <h1><a href="{%url 'patientlogin:home' rs%}"> Med</a></h1>
+                <h2><a href="{%url 'patientlogin:home' rs%}">care</a></h2>
+                {%else%}
+                <h1><a href="{%url 'Home:Home' %}"> Med</a></h1>
+                <h2><a href="{%url 'Home:Home' %}">care</a></h2>
+                {%endif%}
+            </div>
+        </div>
+        <div class="headlinks">
+            
+            
+            
+            <ul>
+                {%if rs%}
+                <li><a href="{%url 'patientlogin:home' rs%}"</a>
+                    <p class="activated"> Home</p></li>
+                <li><a href="{% url 'patientlogin:cards' rs %}">Specialities</a></li>
+                <li><a href="{%url 'ai:consult' rs%}">Consultation</a></li>
+                {%else%}
+                <li><a href="{%url 'Home:Home'%}"class="activated"> Home</a></li>
+                <li><a href="{%url 'patientlogin:cardsUnRe'%}">Specialities</a></li>
+                <li><a href="{%url 'ai:consultUN' %}">Consultation</a></li>
+                {%endif%}
+                
+                {% if rs %}
+                <li><a href="{%url 'reception:reception' rs%}">Profile</a></li>
+                {%else%}
+                {%endif%}
+                <li><a href="{%url 'news:news'%}">News</a></li>
+                <li><a href="#">Hospital</a></li>
+            </ul>
+        </div>
+        {% if rs %}
+        {%else%}
+        <div class="btns-head">
+            <div class="btn-signin btn">
+                <a href="{%url 'logincards:sigin' %}"> <input type="button" class="btn-signup btn" value="Signin"></a>
+            </div>
+            <div class="btn-signup btn">
+                <a href="{%url 'registeras:register' %}"> <input type="button" class="btn-signup btn" value="Signup"></a>
+            </div>
+        </div>
+       {%endif%}
+    </header>
+    </div>
+    <hr class="container">
+    <section class="container banner">
+
+        <div class="left-banner">
+            <div class="ban-text">
+                <span class="typing-animation typing1"><h1>Good service and</h1></span>
+                <span class="typing-animation typing2"><h1> better health by our</h1></span>
+                <span class="typing-animation typing3"><h1> specialists</h1></span>
+                <span class="typing-animation typing4"><h2>welcome to The largest gathering</h2></span>
+                <span class="typing-animation typing4"><h2> of doctors in Egypt</h2></span>
+                {% if rs %}
+                <a href="{% url 'patientlogin:cards' rs %}"><input type="button" class="ban-btn btn" value="Book Session"></a>
+                {% else %}
+                <a href="{%url 'patientlogin:cardsUnRe'%}"><input type="button" class="ban-btn btn" value="Book Session"></a>
+                {% endif %}
+            </div>
+        </div>
+        <img src="{%static 'Home/imgs/banner-back .png'%}" class="slider-frame">
+        <div class="right-banner">
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{%static 'Home/imgs/imge6.png'%}" class="d-block w-100 right-banner" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{%static 'Home/imgs/imge1.png'%}" class="d-block w-100 right-banner" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{%static 'Home/imgs/imge5.png'%}" class="d-block w-100 right-banner" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+            </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+            </div>
+        </div>
+
+    </section>
+    <hr class="container">
+    <section class="specialities-back">
+        <div class="container spec">
+            <h1>specialities</h1>
+            <div class="cards-sec">
+                
+                {%for doc in rs2 %} 
+                <div class="cards card1">
+                    <div class="centring-card">
+                        {% if rs %}
+                        <a href=" {% url 'patientlogin:sprcialCard' rs doc %} ">
+                            <div class="img-icon"><img src="{% static 'Home/imgs/surface1.png'%}" alt=""></div>
+                            <div class="text-icon">
+                                <p>{{doc}}</p>
+                             </div>
+                        </a>
+                        {%else%}
+                        <a href=" {% url 'patientlogin:sprcialCardUnRe' doc %} ">
+                            <div class="img-icon"><img src="{% static 'Home/imgs/surface1.png'%}" alt=""></div>
+                            <div class="text-icon">
+                                <p>{{doc}}</p>
+                             </div>
+                        </a>
+                        {%endif%}
+                        
+                    </div>
+                </div>
+                {%endfor%}
+                
+            </div>
+        </div>
+    </section>
+    <section class="about-us">
+        <div class="search-bar">
+
+        </div>
+        <div class="about-us-sec container">
+            <div class="about">
+                <h1>About Us</h1>
+                <div class="downabout">
+                    <div class="left-about">
+                        <h3>Good service and better health by our specialists</h3>
+                        <p>welcomeThe largest gathering of doctors in Egypt</p>
+                    </div>
+                    <div class="right-about">
+                        <img src=" {%static '/Home/imgs/Group 6938.png' %} " alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="states">
+                <div class="state">
+                    <div class="centring-card">
+                        <div class="img-icon"><img src="{% static 'Home/imgs/doctors.png'%}" alt=""></div>
+                        <div class="text-state">
+                            <p class="numpers" data-goal="1500">0</p>
+                            <h1>doctors</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="state">
+                    <div class="centring-card">
+                        <div class="img-icon"><img src="{% static 'Home/imgs/Hospital.png'%}" alt=""></div>
+                        <div class="text-state">
+                            <p class="numpers" data-goal="2500">0</p>
+                            <h1>Hospital</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="state">
+                    <div class="centring-card">
+                        <div class="img-icon"><img src="{% static 'Home/imgs/labs.png'%}" alt=""></div>
+                        <div class="text-state">
+                            <p class="numpers" data-goal="2500">0</p>
+                            <h1>labs</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="state">
+                    <div class="centring-card">
+                        <div class="img-icon"><img src="{% static 'Home/imgs/clinics.png'%}" alt=""></div>
+                        <div class="text-state">
+                            <p class="numpers" data-goal="2500">0</p>
+                            <h1>clinics</h1>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    </section>
+    <div class="how-to">
+        <img src="{% static 'Home/imgs/how to.png'%}" alt="" srcset="">
+    </div>
+    <div class="phone-download container">
+        <div class="left-phone">
+            <div class="text-phone">
+                <h1>Download The Free App</h1>
+                <p>Make an appointment to visit a doctor, manage the medical record, or make a Session with Our highly qualified Doctors</p>
+            </div>
+            <div class="down-download-cards">
+                <div class="download-cards">
+                    <div class="googleplay-card downcard">
+                        <div class="left-img-downcard">
+                            <img src="{% static 'Home/imgs/svgexport-6 (21) 1.png'%}" alt=""></div>
+                        <div class="right-text-downcard">
+                            <p>Get it on</p>
+                            <h1>google play</h1>
+                        </div>
+                    </div>
+                    <div class="apple-card downcard">
+                        <div class="left-img-downcard">
+                            <img src="{% static 'Home/imgs/svgexport'%}-6 (24) 1.png" alt=""></div>
+                        <div class="right-text-downcard">
+                            <p>downlaod on the</p>
+                            <h1>app store</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="qr-code"></div>
+            </div>
+        </div>
+        <div class="right-phone-pics"><img src="{% static 'Home/imgs/phones.pn'%}g" alt=""></div>
+    </div>
+    <h1 style="text-align: center;">offers</h1>
+    <div class="slide-container swiper">
+        <div class="slide-content">
+            <div class="card-wrapper swiper-wrapper">
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+
+                        <div class="card-image">
+                            <img src="{% static 'Home/imgs/sale1.png'%}" alt="" class="card-img">
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <h2 class="name">Download the free app</h2>
+                        <p class="description">This text is an exampl of text that can be replaced in the same space, this text has been generated from the Arabic text generator, where you can generate such text or many other texts in addition to increasing the number of characters
+                            generated by<a href="#">SeeMore...</a></p>
+
+                        <div class="card-btn">
+                            <div class="card-text">
+                                <h4>500 $ <span><i class="fa-regular fa-clock-two"></i>7 Hours</span></h4>
+                            </div>
+                            <button class="button">Book now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+
+                        <div class="card-image">
+                            <img src="{% static 'Home/imgs/sale2.png'%}" alt="" class="card-img">
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <h2 class="name">Download the free app</h2>
+                        <p class="description">This text is an exampl of text that can be replaced in the same space, this text has been generated from the Arabic text generator, where you can generate such text or many other texts in addition to increasing the number of characters
+                            generated by<a href="#">SeeMore...</a></p>
+
+                        <div class="card-btn">
+                            <div class="card-text">
+                                <h4>500 $ <span><i class="fa-regular fa-clock-two"></i>7 Hours</span></h4>
+                            </div>
+                            <button class="button">Book now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+
+                        <div class="card-image">
+                            <img src="{% static 'Home/imgs/sale3.png'%}" alt="" class="card-img">
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <h2 class="name">Download the free app</h2>
+                        <p class="description">This text is an exampl of text that can be replaced in the same space, this text has been generated from the Arabic text generator, where you can generate such text or many other texts in addition to increasing the number of characters
+                            generated by<a href="#">SeeMore...</a></p>
+
+                        <div class="card-btn">
+                            <div class="card-text">
+                                <h4>500 $ <span><i class="fa-regular fa-clock-two"></i>7 Hours</span></h4>
+                            </div>
+                            <button class="button">Book now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+
+                        <div class="card-image">
+                            <img src="{% static 'Home/imgs/sale4.png'%}" alt="" class="card-img">
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <h2 class="name">Download the free app</h2>
+                        <p class="description">This text is an exampl of text that can be replaced in the same space, this text has been generated from the Arabic text generator, where you can generate such text or many other texts in addition to increasing the number of characters
+                            generated by<a href="#">SeeMore...</a></p>
+
+                        <div class="card-btn">
+                            <div class="card-text">
+                                <h4>500 $ <span><i class="fa-regular fa-clock-two"></i>7 Hours</span></h4>
+                            </div>
+                            <button class="button">Book now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+
+                        <div class="card-image">
+                            <img src="{% static 'Home/imgs/sale1.png'%}" alt="" class="card-img">
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <h2 class="name">Download the free app</h2>
+                        <p class="description">This text is an exampl of text that can be replaced in the same space, this text has been generated from the Arabic text generator, where you can generate such text or many other texts in addition to increasing the number of characters
+                            generated by<a href="#">SeeMore...</a></p>
+
+                        <div class="card-btn">
+                            <div class="card-text">
+                                <h4>500 $ <span><i class="fa-regular fa-clock-two"></i>7 Hours</span></h4>
+                            </div>
+                            <button class="button">Book now</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="swiper-button-next swiper-navBtn"></div>
+        <div class="swiper-button-prev swiper-navBtn"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <footer>
+        <div class="footer container">
+            <div class="left-foot">
+                <div class="logo_cont logo-foot">
+                    <a href="Home.html">
+                        <div class="logo logos-foot"></div>
+                    </a>
+                    <div class="logoh1">
+                        {%if rs%}
+                        <h1><a href="{%url 'patientlogin:home' rs%}"> Med</a></h1>
+                        <h2><a href="{%url 'patientlogin:home' rs%}">care</a></h2>
+                        {%else%}
+                        <h1><a href="{%url 'Home:Home' %}"> Med</a></h1>
+                        <h2><a href="{%url 'Home:Home' %}">care</a></h2>
+                        {%endif%}
+                    </div>
+                </div>
+                <p>This text is an example of text that can <br> be replaced in the same space, this
+                </p>
+                <div class="contact-us">
+                    <h1>contact us</h1>
+                    <ul>
+                        <li>
+                            <a href="">
+                                <i class="fa-brands fa-facebook-f"></a></i>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa-brands fa-whatsapp"></a></i>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa-brands fa-twitter"></a></i>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa-brands fa-github"></a></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mid-foot">
+                <ul class="foot-links">
+                    {%if rs%}
+                    <li><a href="{%url 'patientlogin:home' rs%}" class="activated">Home</a></li>
+                    <li><a href="{% url 'patientlogin:cards' rs %}">Specialities</a></li>
+                    <li><a href="{%url 'ai:consult' rs%}">Consultation</a></li>
+                    {%else%}
+                    <li><a href="{%url 'Home:Home'%}"class="activated"> Home</a></li>
+                    <li><a href="{%url 'patientlogin:cardsUnRe'%}">Specialities</a></li>
+                    <li><a href="{%url 'ai:consultUN' %}">Consultation</a></li>
+                    {%endif%}
+                    
+                    {% if rs %}
+                    <li><a href="#">Profile</a></li>
+                    {%else%}
+                    {%endif%}
+                    <li><a href="{%url 'news:news'%}">News</a></li>
+                    <li><a href="#">Hospital</a></li>
+                </ul>
+            </div>
+            <div class="right-foot">
+                <h1>Download The App Now</h1>
+                <div class="down-foot">
+                    <div class="qr-codes"></div>
+                    <div class="download-cards">
+                        <div class="googleplay-card downcard">
+                            <div class="left-img-downcard">
+                                <img src="{% static 'Home/imgs/svgexport-6 (21) 1.png'%}" alt=""></div>
+                            <div class="right-text-downcard">
+                                <p>Get it on</p>
+                                <h1>google play</h1>
+                            </div>
+                        </div>
+                        <div class="apple-card downcard">
+                            <div class="left-img-downcard">
+                                <img src="{% static 'Home/imgs/svgexport-6 (24) 1.png'%}" alt=""></div>
+                            <div class="right-text-downcard">
+                                <p>downlaod on the</p>
+                                <h1>app store</h1>
+                            </div>
+                        </div>
+                        </div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy-right">
+            <h3> 2022 medcare all rights reserved</h3>
+        </div>
+    </footer>
+    <script src="{% static 'Home/js/popper.min.js'%}"></script>
+    <script src="{% static 'Home/js/bootstrap.js'%}"></script>
+    <script src="{% static 'Home/js/swiper-bundle.min.js'%}"></script>
+    <script>
+        var swiper = new Swiper(".slide-content", {
+            slidesPerView: 3,
+            spaceBetween: 25,
+            loop: true,
+            centerSlide: 'true',
+            fade: 'true',
+            grabCursor: 'true',
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                dynamicBullets: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                },
+                520: {
+                    slidesPerView: 2,
+                },
+                950: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+
+        let nums = document.querySelectorAll(".states .numpers");
+        let statsSection = document.querySelector(".states");
+        let started = false; // Function Started ? No
+
+        window.onscroll = function () {
+            if (window.scrollY >= statsSection.offsetTop) {
+                if (!started) {
+                    nums.forEach((nums) => startCount(nums));
+                }
+                started = true;
+            }
+        };
+
+        function startCount(el) {
+            let goal = el.dataset.goal;
+            let count = setInterval(() => {
+                el.textContent++;
+                if (el.textContent == goal) {
+                    clearInterval(count);
+                }
+            }, 2000 / goal);
+        }
+
+    </script>
+    <script scr="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    
+    
+</body>
+
+</html>

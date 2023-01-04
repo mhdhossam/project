@@ -1,0 +1,357 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>news</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;900&family=Josefin+Sans:wght@300&family=Open+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,400;0,600;0,800;1,200;1,300;1,400;1,500&display=swap"
+        rel="stylesheet"> l
+    <link rel="stylesheet" href="{%static 'news/css/mainig.css'%}">
+    <link rel="stylesheet" href="{%static 'news/css/Styling.css'%}">
+    <link rel="stylesheet" href="{% static 'fontawesome-free-6.2.1-web/css/all.css'%}">
+    <style>
+        a{
+            text-align: center;
+            text-decoration: none;
+        }
+        button{
+            margin-top: 20px;
+        }
+    </style>
+
+    <!-- <link rel="stylesheet" href="../fontawesome-free-6.2.1-web/css/all.css"> -->
+</head>
+
+<body>
+    <header class="container">
+        <div class="logo_cont">
+            {%if rs%}
+            <a href="{%url 'patientlogin:home' rs%}">
+                <div class="logo"></div>
+            </a>
+            {%else%}
+            <a href="{%url 'Home:Home'%}">
+                <div class="logo"></div>
+            </a>
+            {%endif%}
+            <div class="logoh1">
+                {%if rs%}
+                <h1><a href="{%url 'patientlogin:home' rs%}"> Med</a></h1>
+                <h2><a href="{%url 'patientlogin:home' rs%}">care</a></h2>
+                {%else%}
+                <h1><a href="{%url 'Home:Home' %}"> Med</a></h1>
+                <h2><a href="{%url 'Home:Home' %}">care</a></h2>
+                {%endif%}
+            </div>
+        </div>
+        <div class="headlinks">
+            <ul>
+                {%if rs%}
+                <li>
+                    <a href="{%url 'patientlogin:home' rs%}"><p> Home</p> </a>
+                </li>
+                <li>
+                    <a href="{% url 'patientlogin:cards' rs %}"><p> specialist</p></a>
+                </li>
+                {%else%}
+                <li><a href="{%url 'Home:Home'%}"><p>home</p></a></li>
+                <li>
+                    <a href="{%url 'patientlogin:cardsUnRe'%}"><p> specialist</p></a>
+                </li>
+                {%endif%}
+                
+                {%if rs%}
+                <li><a href="{%url 'ai:consult' rs%}">Consultation</a></li>
+                {%else%}
+                <li><a href="{%url 'ai:consultUN'%}">Consultation</a></li>
+                {%endif%}
+                
+                {% if rs %}
+                <li><a href="{%url 'reception:reception' rs%}">Profile</a></li>
+                <li><a href="{%url 'news:newsRE' rs%} "><p class="activated">News</p></a></li>
+                {%else%}
+                <li><a href="{%url 'news:news'%}"><p class="activated">News</p></a></li>
+                {%endif%}
+
+                <li><a href="#">Hospital</a></li>
+                
+            </ul>
+        </div>
+        <div class="btns-head">
+            {%if rs %}
+            <div class="btns-head proflink" style="font-size: 30px;"><a href="{%url 'reception:reception' rs%}"><i class="fa-solid fa-user" style="color: #00507c;"></i></a></div>
+            {%else%}
+            <div class="btn-signin btn">
+                <a href="{%url 'logincards:sigin' %}"> <input type="button" class="btn-signup btn" value="Sign-In"></a>
+            </div>
+            <div class="btn-signup btn">
+                <a href="{%url 'registeras:register' %}"> <input type="button" class="btn-signup btn" value="Sign-Up"></a>
+            </div>
+            {%endif%}
+        </div>
+    </header>
+    <section class="container banner newsban">
+
+
+        <div class="left-banner news">
+            <div class="ban-text">
+                <h3>{{new.title}}</h3>
+                <h4>{{new.subDiscribtion}}
+                </h4>
+                {%if rs%}
+                <a href="{% url 'news:detailRE' rs new.title %}"><button class="ban-btn btn">see details</button></a>
+                {%else%}
+                <a href="{% url 'news:detail' new.title %}"><button class="ban-btn btn">see details</button></a>
+                {%endif%}
+            </div>
+        </div>
+        <div class="right-banner">
+            <img src="{{new.image.url}} " alt="">
+        </div>
+
+    </section>
+
+    <div class="card-area containerr">
+        <div class="left-card">
+            <div class="card card1">
+                <div class="img img1"><img src="{{new2.image.url}}" alt=""></div>
+                <div class="text">
+                    <h3>{{new2.title}}</h3>
+                    <p> {{new2.subDiscribtion}}
+                        {% if rs %}
+                        <a href="{% url 'news:detailRE' rs new2.title %}"> see more</a>.....
+                        {%else%}
+                        <a href="{% url 'news:detail' new2.title %}"> see more</a>.....
+                        {%endif%}
+                    </p>
+                </div>
+                <div class="bottom-card">
+                    <div class="flex time">
+                        <i class="fa-regular fa-clock"></i>
+                        <p>{{new2.date}}</p>
+                    </div>
+                    {%if rs%}
+                    <a href="{% url 'news:detailRE' rs new2.title %}"><button class="btn">see details</button></a>
+                    {%else%}
+                    <a href="{% url 'news:detail' new2.title %}"><button class="btn">see details</button></a>
+                    {%endif%}
+                </div>
+            </div>
+
+        <!-- <a href="{% url 'news:detail' new2.title %}"><button>see details</button></a> -->
+            <div class="card card2">
+                <div class="img2 img"><img src="{{new3.image.url}}" alt=""></div>
+                <div class="text">
+                    <h3>{{new3.title}}</h3>
+                    <p> {{new3.subDiscribtion}}
+                        {% if rs %}
+                        <a href="{% url 'news:detailRE' rs new3.title %}"> see more</a>.....
+                        {%else%}
+                        <a href="{% url 'news:detail' new3.title %}"> see more</a>.....
+                        {%endif%}
+                    </p>
+                </div>
+                <div class="bottom-card">
+                    <div class="flex time">
+                        <i class="fa-regular fa-clock"></i>
+                        <p>{{new3.date}}</p>
+                    </div>
+                   {%if rs%}
+                    <a href="{% url 'news:detailRE' rs new3.title %}"><button class="btn">see details</button></a>
+                    {%else%}
+                    <a href="{% url 'news:detail' new3.title %}"><button class="btn">see details</button></a>
+                    {%endif%}
+                </div>
+            </div>
+            <div class="card card3">
+                <div class="img3 img"><img src="{{new4.image.url}}" alt=""></div>
+                <div class="text">
+                    <h3>{{new4.title}}</h3>
+                    <p>{{new4.subDiscribtion}}
+                        {% if rs %}
+                        <a href="{% url 'news:detailRE' rs new4.title %}"> see more</a>.....
+                        {%else%}
+                        <a href="{% url 'news:detail' new4.title %}"> see more</a>.....
+                        {%endif%}
+                    </p>
+                </div>
+                <div class="bottom-card">
+                    <div class="flex time">
+                        <i class="fa-regular fa-clock"></i>
+                        <p>{{new4.date}}</p>
+                    </div>
+                    {%if rs%}
+                    <a href="{% url 'news:detailRE' rs new4.title %}"><button class=" btn">see details</button></a>
+                    {%else%}
+                    <a href="{% url 'news:detail' new4.title %}"><button class=" btn">see details</button></a>
+                    {%endif%}
+                </div>
+            </div>
+            <div class="card card4">
+                <div class="img4 img"><img src="{{new5.image.url}}" alt=""></div>
+                <div class="text">
+                    <h3>{{new5.title}}</h3>
+                    <p> {{new5.subDiscribtion}}
+                        {% if rs %}
+                        <a href="{% url 'news:detailRE' rs new5.title %}"> see more</a>.....
+                        {%else%}
+                        <a href="{% url 'news:detail' new5.title %}"> see more</a>.....
+                        {%endif%}
+                    </p>
+                </div>
+                <div class="bottom-card">
+                    <div class="flex time"><i class="fa-regular fa-clock"></i>
+                        <p>{{new5.date}}</p>
+                    </div>
+                    {%if rs%}
+                    <a href="{% url 'news:detailRE' rs new5.title %}"><button class="btn">see details</button></a>
+                    {%else%}
+                    <a href="{% url 'news:detail' new5.title %}"><button class="btn">see details</button></a>
+                    {%endif%}
+                </div>
+            </div>
+        </div>
+        <div class="right-card">
+            <div class="iteam itm1"><img src="{{new6.image.url}}" alt="">
+              {% if rs%}
+              <h1 class="Details" >  <a href="{%url 'news:detailRE' rs new6.title %}" >{{new6.title}}</a></h1>
+              {%else%}
+              <h1 class="Details" >  <a href="{%url 'news:detail' new6.title %}" >{{new6.title}}</a></h1>
+              {%endif%}
+            </div></a>
+            <div class="iteam itm2"><img src="{{new7.image.url}}" alt="">
+                {% if rs%}
+              <h1 class="Details" >  <a href="{%url 'news:detailRE' rs new7.title %}" >{{new7.title}}</a></h1>
+              {%else%}
+              <h1 class="Details" >  <a href="{%url 'news:detail' new7.title %}" >{{new7.title}}</a></h1>
+              {%endif%}
+            </div>
+            <div class="iteam itm3"><img src="{{new8.image.url}}" alt="">
+                {% if rs%}
+              <h1 class="Details" >  <a href="{%url 'news:detailRE' rs new8.title %}" >{{new8.title}}</a></h1>
+              {%else%}
+              <h1 class="Details" >  <a href="{%url 'news:detail' new8.title %}" >{{new8.title}}</a></h1>
+              {%endif%}
+            </div>
+            <div class="iteam itm4"><img src="{{new9.image.url}}" alt="">
+                {% if rs%}
+              <h1 class="Details" >  <a href="{%url 'news:detailRE' rs new9.title %}" >{{new9.title}}</a></h1>
+              {%else%}
+              <h1 class="Details" >  <a href="{%url 'news:detail' new9.title %}" >{{new9.title}}</a></h1>
+              {%endif%}
+            </div>
+            <div class="iteam itm5"><img src="{{new10.image.url}}" alt="">
+                {% if rs%}
+              <h1 class="Details" >  <a href="{%url 'news:detailRE' rs new10.title %}" >{{new10.title}}</a></h1>
+              {%else%}
+              <h1 class="Details" >  <a href="{%url 'news:detail' new10.title %}" >{{new10.title}}</a></h1>
+              {%endif%}
+            </div>
+            <div class="live"><img src="{{new.image.url}}" alt="">
+                {% if rs%}
+              <h1 class="Details" >  <a href="{%url 'news:detailRE' rs new.title %}" >{{new.title}}</a></h1>
+              {%else%}
+              <h1 class="Details" >  <a href="{%url 'news:detail' new.title %}" >{{new.title}}</a></h1>
+              {%endif%}
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer container">
+            <div class="left-foot">
+                <div class="logo_cont logo-foot flex">
+                    <a href="Home.html">
+                        <div class="logo logos-foot"></div>
+                    </a>
+                    <div class="logoh1">
+                        <h1><a href=""> Med</a></h1>
+                        <h2><a href="">care</a></h2>
+                    </div>
+                </div>
+                <p>This text is an example of text that can <br> be replaced in the same space, this
+                </p>
+                <div class="contact-us">
+                    <h1>contact us</h1>
+                    <ul>
+                        <li>
+                            <a href="">
+                                <i class="fa-brands fa-facebook-f"></a></i>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa-brands fa-whatsapp"></a></i>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa-brands fa-twitter"></a></i>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa-brands fa-github"></a></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mid-foot">
+                <ul class="foot-links">
+                    {%if rs%}
+                    <li><a href="{%url 'patientlogin:home' rs%}">Home</a></li>
+                    <li><a href="{% url 'patientlogin:cards' rs %}">Specialities</a></li>
+                    <li><a href="{%url 'ai:consult' rs%}">Consultation</a></li>
+                    {%else%}
+                    <li><a href="{%url 'Home:Home'%}"> Home</a></li>
+                    <li><a href="{%url 'patientlogin:cardsUnRe'%}">Specialities</a></li>
+                    <li><a href="{%url 'ai:consultUN' %}">Consultation</a></li>
+                    {%endif%}
+                    
+                    {% if rs %}
+                    <li><a href="{%url 'reception:reception' rs%}">Profile</a></li>
+                    <li><a href="{%url 'news:newsRE' rs%} ">News</a></li>
+                    {%else%}
+                    <li><a href="{%url 'news:news'%}">News</a></li>
+                    {%endif%}
+                    <li><a href="#">Hospital</a></li>
+                </ul>
+            </div>
+            <div class="right-foot">
+                <h1>Download The App Now</h1>
+                <div class="down-foot">
+                    <div class="qr-codes"></div>
+                    <div class="download-cards">
+                        <div class="googleplay-card downcard">
+                            <div class="left-img-downcard">
+                                <img src="{% static 'news/images/svgexport-6 (21) 1.png' %}" alt=""></div>
+                            <div class="right-text-downcard">
+                                <p>Get it on</p>
+                                <h1>google play</h1>
+                            </div>
+                        </div>
+                        <div class="apple-card downcard">
+                            <div class="left-img-downcard">
+                                <img src="{% static 'news/images/svgexport-6 (24) 1.png'%}" alt=""></div>
+                            <div class="right-text-downcard">
+                                <p>downlaod on the</p>
+                                <h1>app store</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        <div class="copy-right">
+            <h3> 2022 medcare all rights reserved</h3>
+        </div>
+    </footer>
+</body>
+
+</html>

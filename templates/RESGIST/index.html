@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+  <link rel="stylesheet" href="{%static 'REGIST/CSS/style.css' %}">
+  <link rel="stylesheet" href="{%static 'REGIST/CSS/normalize.css' %}">
+  <link rel="stylesheet" href="{%static 'REGIST/CSS/all.min.css' %}">
+  <link rel="stylesheet" href="{%static 'REGIST/CSS/bootstrap.css' %}">
+
+</head>
+
+<body>
+  <form method="POST">
+    {% csrf_token %}
+
+    <div class="header">
+      <div class="container">
+        <a href=""><img src="{%static 'REGIST/image/logo.png' %}" alt="" class="logo"></a>
+        {%if rs%}
+        <h2><a href="{%url 'patientlogin:home' rs%}"> Med</a> <span><a
+              href="{%url 'patientlogin:home' rs%}">care</a></span>
+        </h2>
+        {%else%}
+        <h2><a href="{%url 'Home:Home' %}"> Med</a> <span><a href="{%url 'Home:Home' %}">care</a></span>
+        </h2>
+        {%endif%}
+      </div>
+    </div>
+
+
+
+    <div class="sec2">
+      <div class="heading">
+        <h2 class="title">create new account</h2>
+      </div>
+      <div class="container">
+        <div class="cards">
+          <div class="card">
+            <div class="icons">
+              <i class="fa-regular fa-user"></i>
+            </div>
+            <div class="info">
+              <h3>As patient</h3>
+              <a href="{%url 'patientregister:signup' %}"> <input type="button" class="btn" value="Sign up"></a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="icons">
+              <i class="fa-regular fa-hospital"></i>
+            </div>
+            <div class="info">
+              <h3>As medical </h3>
+
+              <a href="{%url 'medicalproviders:signup' %}"><input type="button" class="btn" value="Sign up"></a>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="design">
+      <hr>
+
+      <div class="hexagon">
+        <div class="hexa hexa0">
+          <div class="mini">
+            <i class="fa-solid fa-stethoscope icon"></i>
+          </div>
+        </div>
+        <div class="hexa hexa1">
+          <div class="mini">
+            <i class="fa-solid fa-dna icon"></i>
+          </div>
+        </div>
+        <div class="hexa hexa2">
+          <div class="mini">
+            <i class="fa-solid fa-shield-heart icon"></i>
+          </div>
+        </div>
+        <div class="hexa hexa4">
+          <div class="mini">
+            <i class="fa-solid fa-heart-pulse icon"></i>
+          </div>
+        </div>
+        <div class="hexa hexa5">
+          <div class="mini">
+            <i class="fa-solid fa-capsules icon"></i>
+          </div>
+        </div>
+        <div class="hexa hexa6">
+          <div class="mini">
+            <i class="fa-solid fa-droplet icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <script src="main.js"></script>
+
+</body>
+
+</html>

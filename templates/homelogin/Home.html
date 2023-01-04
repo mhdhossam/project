@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{%static 'Home/CSS/Style.css' %}">
+    <link rel="stylesheet" href="{%static 'Home/CSS/all.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'Home/CSS/consaltation' %}.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;900&family=Josefin+Sans:wght@300&family=Open+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,400;0,600;0,800;1,200;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
+
+        
+
+
+        <script src="{%static 'Home/js/jquery-3.6.1.js' %}"></script>
+</head>
+
+<body>
+    
+    <form method="POST">
+        {% csrf_token %}
+    <header class="container">
+        <div class="logo_cont">
+            
+               <div class="logo">
+                <img src="{%static 'Home/imgs/logo.png' %}" alt="">
+                </div>
+        
+            <div class="logoh1">
+                <h1><a href=""> Med</a></h1>
+                <h2><a href="">care</a></h2>
+            </div>
+        </div>
+        <div class="headlinks">
+            
+            <i class="fas fa-bars toggle-menu"></i>
+            
+            <ul>
+                <li><a href=""> Home</a></li>
+                <li><a href="">Specialities</a></li>
+                <li><a href="#">consaltaion</a></li>
+                <li><a href="">News</a></li>
+                <li><a href="">Hospital</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <hr class="container">
+    <section class="container banner">
+
+        <div class="left-banner">
+            <div class="ban-text">
+                <h1>Good service and better<br> 
+                    health by our specialists<br>
+                </h1>
+                <h2>welcomeThe largest gathering<br> of doctors in Egypt</h2>
+                <div class="ban-btn btn">
+                    <h4>Book session</h4>
+                </div>
+            </div>
+        </div>
+        <div class="right-banner">
+            <div class="images">
+                <img src="{%static 'Home/imgs/Home banner.png' %}" alt="">
+            </div>
+            <div class="img">  
+                <img src="{%static 'Home/imgs/doctors-home.png' %}" alt="">
+
+            </div>
+        </div>
+    </section>
+    <hr class="container">
+    <section class="specialities-back">
+        <div class="container spec">
+            <h1>specialities</h1>
+            <div class="cards-sec">
+                <div class="cards card1">
+                    <div class="centring-card">
+                        <div class="img-icon"><img src="{%static 'Home/imgs/surface1.png' %}" alt=""></div>
+                        <div class="text-icon">
+                            <p>cardiac</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards card2">
+                    <div class="centring-card">
+                        <div class="img-icon"><img src="{%static 'Home/imgs/surface1.png' %}" alt=""></div>
+                        <div class="text-icon">
+                            <p>cardiac</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards card3">
+                    <div class="centring-card">
+                        <div class="img-icon"><img src="{%static 'Home/imgs/surface1.png' %}" alt=""></div>
+                        <div class="text-icon">
+                            <p>cardiac</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards card4">
+                    <div class="centring-card">
+                        <div class="img-icon"><img src="{%static 'Home/imgs/surface1.png' %}" alt=""></div>
+                        <div class="text-icon">
+                            <p>cardiac</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards card5">
+                    <div class="centring-card">
+                        <div class="img-icon"><img src="{%static 'Home/imgs/surface1.png' %}" alt=""></div>
+                        <div class="text-icon">
+                            <p>cardiac</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards card6">
+                    <div class="centring-card">
+                        <div class="img-icon"><img src="{%static 'Home/imgs/surface1.png' %}" alt=""></div>
+                        <div class="text-icon">
+                            <p>cardiac</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards card7">
+                    <div class="centring-card">
+                        <div class="img-icon"><img src="{%static 'Home/imgs/surface1.png' %}" alt=""></div>
+                        <div class="text-icon">
+                            <p>cardiac</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards card8">
+                    <div class="centring-card">
+                        <div class="img-icon"><img src="{%static 'Home/imgs/surface1.png' %}" alt=""></div>
+                        <div class="text-icon">
+                            <p>cardiac</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards card9">
+                    <div class="centring-card">
+                        <div class="img-icon"><img src="{%static 'Home/imgs/surface1.png' %}" alt=""></div>
+                        <div class="text-icon">
+                            <p>cardiac</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards card10">
+                    <div class="centring-card">
+                        <div class="img-icon"><img src="{%static 'Home/imgs/surface1.png' %}" alt=""></div>
+                        <div class="text-icon">
+                            <p>cardiac</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards card11">
+                    <div class="centring-card">
+                        <div class="img-icon"><img src="{%static 'Home/imgs/surface1.png' %}" alt=""></div>
+                        <div class="text-icon">
+                            <p>cardiac</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards card12">
+                    <div class="centring-card">
+                        <div class="img-icon"><img src="{%static 'Home/imgs/surface1.png' %}" alt=""></div>
+                        <div class="text-icon">
+                            <p>cardiac</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="about-us">
+        <div class="search-bar">
+
+        </div>
+        <div class="about-us-sec container">
+            <div class="about">
+                <h1>About Us</h1>
+                <div class="downabout">
+                    <div class="left-about">
+                        <h3>Good service and better health by our specialists</h3>
+                        <p>welcomeThe largest gathering of doctors in Egypt</p>
+                    </div>
+                    <div class="right-about">
+
+                    </div>
+                </div>
+            </div>
+            <div class="states">
+                <div class="state">
+                    <div class="centring-card">
+                        <div class="img-icon"><img src="{%static 'Home/imgs/doctors.png' %}" alt=""></div>
+                        <div class="text-state">
+                            <p class="numpers">+2000</p>
+                            <h1>doctors</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="state">
+                    <div class="centring-card">
+                        <div class="img-icon"><img src="{%static 'Home/imgs/Hospital.png' %}" alt=""></div>
+                        <div class="text-state">
+                            <p class="numpers">+2000</p>
+                            <h1>Hospital</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="state">
+                    <div class="centring-card">
+                        <div class="img-icon"><img src="{%static 'Home/imgs/labs.png' %}" alt=""></div>
+                        <div class="text-state">
+                            <p class="numpers">+2000</p>
+                            <h1>labs</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="state">
+                    <div class="centring-card">
+                        <div class="img-icon"><img src="{%static 'Home/imgs/clinics.png' %}" alt=""></div>
+                        <div class="text-state">
+                            <p class="numpers">+2000</p>
+                            <h1>clinics</h1>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    </section>
+    <div class="how-to">
+        <img src="{%static 'Home/imgs/how to.png' %}" alt="" srcset="">
+    </div>
+    <div class="phone-download container">
+        <div class="left-phone">
+            <div class="text-phone">
+                <h1>Download The Free App</h1>
+                <p>Make an appointment to visit a doctor, manage the medical record, or make a Video Call with Our highly qualified Doctors</p>
+            </div>
+            <div class="down-download-cards">
+                <div class="download-cards">
+                    <div class="googleplay-card downcard">
+                        <div class="left-img-downcard">
+                            <img src="{%static 'Home/imgs/svgexport-6 (21) 1.png' %}" alt=""></div>
+                        <div class="right-text-downcard">
+                            <p>Get it on</p>
+                            <h1>google play</h1>
+                        </div>
+                    </div>
+                    <div class="apple-card downcard">
+                        <div class="left-img-downcard">
+                            <img src="{%static 'Home/imgs/svgexport-6 (24) 1.png' %}" alt=""></div>
+                        <div class="right-text-downcard">
+                            <p>downlaod on the</p>
+                            <h1>app store</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="qr-code"></div>
+            </div>
+        </div>
+        <div class="right-phone-pics"><img src="{%static 'Home/imgs/phones.png' %}" alt=""></div>
+    </div>
+</form>
+
+
+    {% comment %} <script src="{%static 'Home/js/popper.min.js' %}"></script> {% endcomment %}
+
+    <script src="{%static 'Home/js/bootstrap.js' %}"></script>
+
+    
+    
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+
+:root{
+    --color-1:#00507C;
+    --color-2:#38D7B8;
+    --linear-gradient:linear-gradient(90deg, #75F2DA 0%, rgba(25, 191, 253, 0.78) 124.38%);
+}
+body{
+    background: var(--linear-gradient);
+        font-family: 'Poppins';
+    }
+    
+.linking{
+    text-decoration: none;
+    color:black;
+}
+
+input[type ="number"]{
+    width: 49%;
+    height: 40px;
+    border: none;
+    padding: 10px 10px 5px 5px;
+    border-radius: 12px;
+    margin: 1px;
+}
+
+input[type="submit"]{
+
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.container .cont1{
+        width: 1568px;
+        height: 744px;
+        top: 57%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: auto;
+        position: absolute;
+        background: rgba(254, 254, 254, 0.24);
+        backdrop-filter: blur(2px);
+        border-radius: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .container .cont1::after{
+        content: ' ';
+        position: absolute;
+        background-color:var(--color-1);
+        width: 8px;
+        height: 100%;
+        left: 47%;
+    }
+    .cont1 .form1{
+        position: absolute;
+        left: 10%;
+    }
+
+    .cont1 .form2{
+        position: absolute;
+        left: 62%;
+    }
+    .info{
+        position: absolute;
+        top: -58%;
+        left: -16%;
+    }
+    .info h3{
+        font-size: 30px;
+        text-transform: capitalize;
+        color: var(--color-1);
+        text-decoration: underline;
+    }
+    .info1{
+        position: absolute;
+        top: -19%;
+        left: -26%;
+    }
+    .info1 h3{
+        font-size: 29px;
+        text-transform: capitalize;
+        color: var(--color-1);
+        text-decoration: underline;
+    }
+
+    .form1 .in1{
+        /* padding: 24px;
+        margin-bottom: 18px; */
+        padding: 17px;
+        margin-bottom: -12px;
+        margin-left: -136px;
+    }
+    .form1 .in2{
+        /* padding: 24px;
+        margin-bottom: 24px;
+        margin-left: 197px; */
+            padding: 20px;
+    margin-bottom: 4px;
+    margin-left: 252px;
+}
+
+.form2 .in1{
+    padding: 17px;
+    margin-bottom: -12px;
+    margin-left: -136px;
+}
+.form2 .in2{
+    padding: 20px;
+    margin-bottom: 4px;
+    margin-left: 252px;
+}

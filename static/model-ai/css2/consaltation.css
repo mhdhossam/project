@@ -1,0 +1,203 @@
+
+:root{
+    --color-1:#00507C;
+    --color-2:#38D7B8;
+    --color-3:#19BFFD;
+    --linear-gradient:linear-gradient(90deg, #75F2DA 0%, rgba(25, 191, 253, 0.78) 124.38%);
+}
+body{
+    background: var(--linear-gradient);
+        font-family: 'Poppins';
+    }
+    
+.linking{
+    text-decoration: none;
+    color:black;
+}
+
+input[type ="number"]{
+    width: 49%;
+    height: 40px;
+    border: 1px solid var(--color-1) ;
+    padding: 10px 10px 5px 5px;
+    border-radius: 12px;
+    margin: 1px;
+    outline: none;
+    /* transition: 0.3s; */
+}
+
+input[type ="number"]:focus{
+    border: 4px solid var(--color-3);
+    background-color: #f9f9f9;
+}
+
+
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.container .cont1{
+        width: 1568px;
+        height: 744px;
+        top: 57%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: auto;
+        position: absolute;
+        background: rgba(254, 254, 254, 0.24);
+        backdrop-filter: blur(2px);
+        border-radius: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+
+    .info h3{
+        font-size: 30px;
+        text-transform: capitalize;
+        color: var(--color-1);
+        text-decoration: underline;
+    }
+    .info1{
+        position: absolute;
+        top: -19%;
+        left: -26%;
+    }
+    .info1 h3{
+        font-size: 29px;
+        text-transform: capitalize;
+        color: var(--color-1);
+        text-decoration: underline;
+    }
+
+    /* form1 */
+    .cont1 .form1{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .form1 .diabetes .in1{
+        transform: translate(-444px, 47px);
+        display: flex;
+        width: 200%;
+    }
+
+    
+    .form1 .diabetes .in2{
+        transform: translate(200px, 7px);
+        display: flex;
+        width: 200%;
+    }
+
+    
+    
+    .btnn {
+        width: 184px;
+        height: 65px;
+        border: 1px solid #00507C;
+        border-radius: 8px;
+        font-weight: 400;
+        font-size: 24px;
+        color: var(--color3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.3s;
+        text-transform: capitalize;
+        transform: translate(15px, 59px);
+
+    }
+    
+    
+    
+    .btnn :nth-child(1) {
+        z-index: 2;
+        font-weight: 400;
+        font-size: 24px;
+        text-transform: capitalize;
+    }
+    
+    .btnn::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: var(--color-3);
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 8px;
+        opacity: 0;
+    }
+    
+    .btnn:hover::before {
+        /* /* width: 12px; 
+        /* z-index: 0; */
+         animation: left-move 0.2s ease-in both; 
+    } 
+    
+    .btnn:hover {
+        background-color: var(--color-3);
+        cursor: pointer;
+        color: white;
+        
+        
+    } 
+
+    /* heartbtn */
+    .btnnn {
+        width: 184px;
+        height: 65px;
+        border: 1px solid #00507C;
+        border-radius: 8px;
+        font-weight: 400;
+        font-size: 24px;
+        color: var(--color3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.3s;
+        text-transform: capitalize;
+        transform: translate(5px, 62px);
+    }
+    
+    
+    
+    .btnnn :nth-child(1) {
+        z-index: 2;
+        font-weight: 400;
+        font-size: 24px;
+        text-transform: capitalize;
+    }
+    
+    .btnnn::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: var(--color-3);
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 8px;
+        opacity: 0;
+    }
+    
+    .btnnn:hover::before {
+        animation: left-move 0.2s ease-in both; 
+    } 
+    
+    .btnnn:hover {
+        background-color: var(--color-3);
+        cursor: pointer;
+        color: white;
+        
+        
+    } 
+    
+
+

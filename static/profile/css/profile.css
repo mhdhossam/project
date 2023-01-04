@@ -1,0 +1,227 @@
+.section-1 {
+    height: 85em;
+}
+
+.sec-color {
+    background: linear-gradient(166.49deg, #19BFFD 0.81%, #75F2DA 101.14%);
+    border-radius: 0px 28px 28px 0px;
+}
+
+.text-color {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 550;
+    font-size: 19px;
+    line-height: 24px;
+    text-transform: capitalize;
+    color: #00507C;
+}
+
+.wi1 {
+    width: 100px;
+    height: 100px;
+}
+
+.main {
+    margin: 111px 0 20px 0;
+}
+
+.icon-1 {
+    color: #00507C;
+    font-size: 19px;
+}
+
+.link-1 {
+    text-decoration: none;
+    width: 67px;
+    height: 24px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 350;
+    font-size: 19px;
+    line-height: 24px;
+    text-transform: capitalize;
+    color: #00507C;
+}
+
+.img-pro {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    left: 80px;
+    top: 180px;
+}
+
+.button-pro {
+    position: absolute;
+    right: 30px;
+    top: 25px;
+}
+
+.int-1 {
+    margin-top: 130px;
+    margin-right: 12px;
+}
+
+.int-2 {
+    margin-top: 85px;
+    margin-right: 12px;
+}
+
+.iput-1 {
+    width: 300px;
+    height: 55px;
+    border: 1px solid #00507C;
+    border-radius: 16px;
+}
+
+.icon-plus {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 50%;
+    border-color: #00507C;
+    padding: 7px;
+    align-items: center;
+}
+
+.icon-3 {
+    font-size: 37px;
+    font-weight: lighter;
+    color: #00507C;
+}
+
+label {
+    text-transform: capitalize;
+}
+
+label:hover {
+    cursor: text;
+}
+
+.iput-1:focus~label {
+    top: -30px;
+    left: 15px;
+    transition: 0.5s;
+    font-size: 20px;
+}
+
+.label-1 {
+    position: absolute;
+    top: -28px;
+    left: 15px;
+    transition: 0.5s;
+    font-size: 17px;
+    color: #00507C;
+    /* background-color: white; */
+    padding-right: 10px;
+}
+
+.icon-edit {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 22px;
+    color: #00507C;
+}
+
+.text-div {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: capitalize;
+    color: #00507C;
+    width: 300px;
+    height: 320px;
+}
+
+.border-text {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00507C;
+    padding: 7px;
+    align-items: center;
+    border-radius: 16px;
+    padding: 20px;
+    width: 400px;
+}
+
+.i-about {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background-color: white;
+}
+
+.i-about i {
+    color: #00507C;
+}
+
+.border-img {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00507C;
+    padding: 7px;
+    align-items: center;
+    border-radius: 16px;
+    padding: 20px;
+    width: 400px;
+}
+
+.add-img {
+    /* background-image: url("../img/Rectangle\ 82.png"); */
+    width: 100px;
+    height: 90px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 10px;
+}
+
+.add-plus {
+    width: 100px;
+    height: 90px;
+    margin: 10px;
+    padding: 10px;
+    border: #00507C solid 1px;
+}
+
+.button-img {
+    padding: 10px;
+    margin: 10px;
+    border: 0px;
+}
+
+.button-img i {
+    color: #00507C;
+    font-size: 40px;
+    font-weight: lighter;
+}
+
+.div-mar {
+    justify-content: center;
+    gap: 30px;
+    margin-top: 80px;
+}
+
+.ttt1 {
+    position: absolute;
+    top: 380px;
+}
+
+.about-box {
+    width: 40%;
+    min-width: 400px;
+}
+
+.photo-box {
+    width: 40%;
+    min-width: 400px;
+}
+
+.btn {
+    border: #00507C 1px solid;
+}

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'doctor profile/dr-style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;900&family=Josefin+Sans:wght@300&family=Open+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,400;0,600;0,800;1,200;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../fontawesome-free-6.2.1-web/css/all.css">
+    <!-- <link rel="stylesheet" href="../Home/Style.css"> -->
+    <link rel="stylesheet" href="{%static 'doctor profile/css/all.min.css' %}">
+    <link rel="stylesheet" href="{%static 'doctor profile/css/normalize.css' %}">
+    <link rel="stylesheet" href="{%static 'doctor profile/css/style.css' %}">
+    <title>dr brofile</title>
+</head>
+
+<body>
+    <header class="containerr">
+        <div class="logo_cont">
+            <a href="Home.html">
+                <div class="logo"></div>
+            </a>
+            <div class="logoh1">
+                {%if rs%}
+                <h1><a href="{%url 'patientlogin:home' rs%}"> Med</a></h1>
+                <h2><a href="{%url 'patientlogin:home' rs%}">care</a></h2>
+                {%else%}
+                <h1><a href="{%url 'Home:Home' %}"> Med</a></h1>
+                <h2><a href="{%url 'Home:Home' %}">care</a></h2>
+                {%endif%}
+            </div>
+        </div>
+        <div class="headlinks">
+            <ul>
+                {%if rs%}
+                <li>
+                    <a href="{%url 'patientlogin:home' rs%}">
+                        <p> Home</p>
+                    </a>
+                </li>
+                {%else%}
+                <li><a href="{%url 'Home:Home'%}"><p>home</p></a></li>
+                {%endif%}
+                <li>
+                    <a href="#">
+                        <p class="activated">Specialities</p>
+                    </a>
+                </li>
+                {%if rs%}<li><a href="{%url 'ai:consult' rs%}">Consultation</a></li>{%else%}<li><a href="{%url 'ai:consultUN'%}">Consultation</a></li>{%endif%}
+                {% if rs %}
+                <li><a href="{%url 'news:newsRE' rs%} ">News</a></li>
+                {%else%}
+                <li><a href="{%url 'news:news'%}">News</a></li>
+                {%endif%}
+                <li><a href="">Hospital</a></li>
+            </ul>
+        </div>
+        <div class="btns-head">
+            {%if rs %}
+            <div class="btns-head proflink"><a href="{%url 'reception:reception' rs%}"><i class="fa-solid fa-user"></i></a></div>
+            {%else%}
+            <div class="btn-signin btn">
+                <a href="{%url 'logincards:sigin' %}"> <input type="button" class="btn-signup btn" value="Sign-in"></a>
+            </div>
+            <div class="btn-signup btn">
+                <a href="{%url 'registeras:register' %}"> <input type="button" class="btn-signup btn" value="Sign-Up"></a>
+            </div>
+            {%endif%}
+        </div>
+    </header>
+    <div class="banner container">
+        <h2> Dr.{{doctor.name}}</h2>
+        <div class="profile-img">
+            {%if doctor.image %}
+            <img id="img-doc" src="{{doctor.image.url}}" alt="dr1" style="    width: 330px;
+            height: 330px;">
+            {%else%}
+            <img id="img-doc" src="{%static 'specialtais/imgs/blankPro.jpg'%}" alt="dr1" style="    width: 330px;
+            height: 330px;">
+            {%endif%}
+            <h2> Dr.{{doctor.name}}</h2>
+            <p>{{doctor.specialist}}
+            </p>
+        </div>
+    </div>
+    <div class="attreputes">
+        <div class="att att1 flex">
+            <img src="{% static 'doctor profile/imgs/frindly.png' %}" alt=""> friendly</div>
+        <div class="att att2 flex">
+            <img src="{%static 'doctor profile/imgs/good listener.png'%}" alt=""> good listener</div>
+        <div class="att att3 flex">
+            <img src="{%static 'doctor profile/imgs/hygiene.png'%}" alt=""> hygiene</div>
+    </div>
+    <div class="details-dr container">
+        <div class="about">
+            <div class="h2 flex">
+                <img src="{%static 'doctor profile/imgs/about.png'%}" alt="">
+                <h1>About</h1>
+            </div>
+            <p> {{doctor.about}}
+            </p>
+        </div>
+        <div class="location">
+            <div class="h2 flex">
+                <img src="{%static 'doctor profile/imgs/location.png'%}" alt="">
+                <h2>{{x.location}}</h2>
+            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55251.33564056191!2d31.29348378146594!3d30.059558098334296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583fa60b21beeb%3A0x79dfb296e8423bba!2z2KfZhNmC2KfZh9ix2KnYjCDZhdit2KfZgdi42Kkg2KfZhNmC2KfZh9ix2KnigKw!5e0!3m2!1sar!2seg!4v1670151989769!5m2!1sar!2seg"
+                width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    </div>
+    <div class="clinic container">
+        <div class="clinic-imgs">
+            <div class="flex h2">
+                <img src="{%static 'doctor profile/imgs/imgs.png'%}" alt="imgs">
+                <h1>clinic</h1>
+            </div>
+            <div class="clinic-img">
+            <div class="img1 img"></div>
+                <div class="img2 img"></div>
+                <div class="img3 img"></div>
+                <div class="img4 img"></div>
+                <div class="img5 img"></div>
+                <div class="img6 img"></div>
+            </div>
+            <div class="clinic-text">
+                <div class="h2 flex">
+                    <img src="{%static 'doctor profile/imgs/text.png'%}" alt="text">
+                    <h2>Patients Reviews</h2>
+                </div>
+                <div class="Reviews">
+                    <div class="rev1 rev">
+                        <h1>over all skill</h1>
+                        <img src="{%static 'doctor profile/imgs/rev.png'%}" alt="">
+                    </div>
+                    <div class="rev1 rev">
+                        <h1>Assistant Rating</h1>
+                        <img src="{%static 'doctor profile/imgs/rev.png'%}" alt="">
+                    </div>
+                    <div class="rev1 rev">
+                        <h1>Clinic Rating</h1>
+                        <img src="{%static 'doctor profile/imgs/rev.png'%}" alt="">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+ 
+        <div class="booking-session" style="width: 60%;">
+            <form action="" method="POST" class="booking-session" style="width: 60%;margin-left:15%">
+                {% csrf_token %}
+            <section class="calenderr">
+                <div class="conte">
+                    <div class="text">
+                        <h1>Book Session</h1>
+                    </div>
+                    <div class="container">
+
+                        <div class="calendar">
+                            <div class="month">
+                                <i class="fas fa-angle-left prev"></i>
+                                <div class="date">
+                                    <h1></h1>
+                                    <p></p>
+                                </div>
+                                <i class="fas fa-angle-right next"></i>
+                            </div>
+                            <div class="weekdays">
+                                <div>Sun</div>
+                                <div>Mon</div>
+                                <div>Tue</div>
+                                <div>Wed</div>
+                                <div>Thu</div>
+                                <div>Fri</div>
+                                <div>Sat</div>
+                            </div>
+                            <div class="days">
+                                <div>1</div>
+                                <div>2</div>
+                                <div>3</div>
+                                <div>4</div>
+                                <div>5</div>
+                                <div>6</div>
+                                <div>7</div>
+                                <div>8</div>
+                                <div>9</div>
+                                <div>10</div>
+                                <div>11</div>
+                                <div>12</div>
+                                <div>13</div>
+                                <div>14</div>
+                                <div>15</div>
+                                <div>16</div>
+                                <div>17</div>
+                                <div>18</div>
+                                <div>19</div>
+                                <div>20</div>
+                                <div>21</div>
+                                <div>22</div>
+                                <div>23</div>
+                                <div>24</div>
+                                <div>25</div>
+                                <div>26</div>
+                                <div>27</div>
+                                <div>28</div>
+                                <div>29</div>
+                                <div>30</div>
+                                <div>31</div>
+                                <div class="next-date">1</div>
+                                <div class="next-date">2</div>
+                                <div class="next-date">3</div>
+                                <div class="next-date">4</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <h2>select your session</h2>
+                    </div>
+
+                    <div class="select">
+                        <div class="select1">
+                            <a class="button selected">10:00 PM - 10:30 PM</a>
+                            <a class="button">10:00 PM - 10:30 PM</a>
+                            <a class="button">10:00 PM - 10:30 PM</a>
+                        </div>
+                        <div class="select 2">
+                            <a class="button ">10:00 PM - 10:30 PM</a>
+                            <a class="button" >10:00 PM - 10:30 PM</a>
+                            <a class="button" >10:00 PM - 10:30 PM</a>
+                        </div>
+                    </div>
+                    <div class="info1">
+                        <div class="text1">price</div>
+                        <div class="text2">{{doctor.price}} EGP / 30MINUTES</div>
+                    </div>
+                    <div class="select3">
+                        <!-- <a class="button1 selected1 ">Online</a> -->
+                        <a class="button1">Off-line</a>
+                    </div>
+                    <div>
+                        {%if rs%}
+                            <input type="submit" value="Book session" name="" class="btn">
+                            {%else%}
+                                <a href="{%url 'logincards:sigin' %}"><input type="submit" value="Book session" name="" class="btn"></a>
+                            {%endif%}
+                    </div>
+                </div>
+            </section>
+
+
+
+
+            <script src="{%static 'doctor profile/js/main.js'%}"></script>
+    </form>
+
+        </div>
+    </div>
+<footer>
+    <div class="footer container">
+        <div class="left-foot">
+            <div class="logo_cont logo-foot">
+                <a href="Home.html">
+                    <div class="logo logos-foot"></div>
+                </a>
+                <div class="logoh1">
+                    {%if rs%}
+                    <h1><a href="{%url 'patientlogin:home' rs%}"> Med</a></h1>
+                    <h2><a href="{%url 'patientlogin:home' rs%}">care</a></h2>
+                    {%else%}
+                    <h1><a href="{%url 'Home:Home' %}"> Med</a></h1>
+                    <h2><a href="{%url 'Home:Home' %}">care</a></h2>
+                    {%endif%}
+                </div>
+            </div>
+            <p>This text is an example of text that can <br> be replaced in the same space, this
+            </p>
+            <div class="contact-us">
+                <h1>contact us</h1>
+                <ul>
+                    <li>
+                        <a href="">
+                            <i class="fa-brands fa-facebook-f"></a></i>
+                    </li>
+                    <li>
+                        <a href=""><i class="fa-brands fa-whatsapp"></a></i>
+                    </li>
+                    <li>
+                        <a href=""><i class="fa-brands fa-twitter"></a></i>
+                    </li>
+                    <li>
+                        <a href=""><i class="fa-brands fa-github"></a></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="mid-foot">
+            <ul class="foot-links">
+                {%if rs%}
+                <li><a href="{%url 'patientlogin:home' rs%}">Home</a></li>
+                <li><a href="{% url 'patientlogin:cards' rs %}">Specialities</a></li>
+                <li><a href="{%url 'ai:consult' rs%}">Consultation</a></li>
+                {%else%}
+                <li><a href="{%url 'Home:Home'%}"> Home</a></li>
+                <li><a href="{%url 'patientlogin:cardsUnRe'%}">Specialities</a></li>
+                <li><a href="{%url 'ai:consultUN' %}">Consultation</a></li>
+                {%endif%}
+                
+                {% if rs %}
+                <li><a href="{%url 'reception:reception' rs%}">Profile</a></li>
+                <li><a href="{%url 'news:newsRE' rs%} ">News</a></li>
+                {%else%}
+                <li><a href="{%url 'news:news'%}">News</a></li>
+                {%endif%}
+                <li><a href="#">Hospital</a></li>
+            </ul>
+        </div>
+        <div class="right-foot">
+            <h1>Download The App Now</h1>
+            <div class="down-foot">
+                <div class="qr-codes">
+                    <img src=" {% static 'Home/imgs/Frame.png' %} " style="    width: 138px;
+                    height: 138px;
+                " alt="">
+                </div>
+                <div class="download-cards">
+                    <div class="googleplay-card downcard">
+                        <div class="left-img-downcard">
+                            <img src="{% static 'Home/imgs/svgexport-6 (21) 1.png'%}" alt=""></div>
+                        <div class="right-text-downcard">
+                            <p>Get it on</p>
+                            <h1>google play</h1>
+                        </div>
+                    </div>
+                    <div class="apple-card downcard">
+                        <div class="left-img-downcard">
+                            <img src="{% static 'Home/imgs/svgexport-6 (24) 1.png'%}" alt=""></div>
+                        <div class="right-text-downcard">
+                            <p>downlaod on the</p>
+                            <h1>app store</h1>
+                        </div>
+                    </div>
+                    </div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copy-right">
+        <h3> 2022 medcare all rights reserved</h3>
+    </div>
+</footer>
+
+</body>
+
+</html>

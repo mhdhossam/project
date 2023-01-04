@@ -1,0 +1,119 @@
+::selection {
+    color: var(--color3);
+    background: var(--color1);
+}
+
+:root {
+    --color1: #75F2DA;
+    --color2: #19BFFD;
+    --color3: #00507C;
+    --main-transition: 0.4s;
+    --main-gradient: linear-gradient(98.56deg, #75F2DA 0%, #0AAFFF 127.71%);
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins';
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+hr {
+    background-color: var(--color3);
+    /* height: 13px; */
+}
+
+
+/* Dropdown */
+
+.dropbtn {
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown { 
+    position: relative;
+    display: inline-block;
+}
+.dropdown a{
+    text-decoration: none;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);   
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;      
+    display: block;
+    transition: 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: var(--color2);
+}
+
+    .dropdown:hover .dropdown-content {
+    display: block;
+    }
+
+    .ai{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    }
+    .ai .text{
+    margin-left: 20px;
+    border: 2px solid var(--color3);
+    border-radius: 15px;
+    width: 66%;
+    }
+    .ai .text p{
+    line-height: 55px;
+    font-size: 18px;
+    padding: 18px;
+    font-weight: 500;
+    color: var(--color3);
+    text-transform: capitalize;
+    }
+    .ai .text h1{
+    text-align: center;
+    /* text-decoration: underline; */
+    font-size: 34px;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: var(--color2);
+    }
+
+    .ai .img
+    {
+    width: 29%;
+    height: 15%;
+    border-radius: 21px;
+    /* border: 2px solid; */
+    margin-left: 0.5px;
+
+    }
+    .ai .img img{
+    width: 553px;
+    height: 550px;
+    border-radius: 15px;
+    border: 1px solid var(--color3);
+    }

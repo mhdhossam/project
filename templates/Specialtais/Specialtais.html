@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'Specialtais/css/Specialtais.css'%}">
+    <link rel="stylesheet" href="{%static 'fontawesome-free-6.2.1-web/css/all.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;900&family=Josefin+Sans:wght@300&family=Open+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,400;0,600;0,800;1,200;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
+        {% comment %} <link rel="stylesheet" href="{% static '/Specialtais/css/StyleSp.css'%}"> {% endcomment %}
+        <link rel="stylesheet" href="{% static '/Specialtais/css/Stylet.css'%}">
+        <link rel="stylesheet" href="{%static 'Specialtais/css/Specialtais.css'%}">
+    <title>Specialtais</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;900&family=Josefin+Sans:wght@300&family=Open+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,400;0,600;0,800;1,200;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'Home/fontawesome-free-6.2.0-web/css/all.css'%}">
+</head>
+
+<body>
+    <header class="container">
+        <div class="logo_cont">
+            <a href="Home.html">
+                <div class="logo"></div>
+            </a>
+            <div class="logoh1">
+                {%if rs%}
+                <h1><a href="{%url 'patientlogin:home' rs%}"> Med</a></h1>
+                <h2><a href="{%url 'patientlogin:home' rs%}">care</a></h2>
+                {%else%}
+                <h1><a href="{%url 'Home:Home' %}"> Med</a></h1>
+                <h2><a href="{%url 'Home:Home' %}">care</a></h2>
+                {%endif%}
+            </div>
+        </div><input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+        <i class="fas fa-bars toggle-menu"></i>
+        </label>
+        <div class="headlinks">
+            <ul>
+                {%if rs%}
+                <li>
+                    <a href="{%url 'patientlogin:home' rs%}">
+                        <p> Home</p>
+                    </a>
+                </li>
+                <li><a href="{% url 'patientlogin:cards' rs %}" ><p class="activated">Specialities</p></a></li>
+                {%else%}
+                <li><a href="{%url 'Home:Home'%}"><p>Home</p></a></li>
+                <li><a href="{%url 'patientlogin:cardsUnRe'%}" ><p class="activated">Specialities</p></a></li>
+                {%endif%}
+                
+                {%if rs%}
+                <li><a href="{%url 'ai:consult' rs%}">Consultation</a></li>
+                <li><a href="{%url 'reception:reception' rs%}">Profile</a></li>
+                {%else%}
+                <li><a href="{%url 'ai:consultUN'%}">Consultation</a></li>
+                {%endif%}
+                
+                {% if rs %}
+                <li><a href="{%url 'news:newsRE' rs%} ">News</a></li>
+                {%else%}
+                <li><a href="{%url 'news:news'%}">News</a></li>
+                {%endif%}
+                <li><a href="#">Hospital</a></li>
+                
+            </ul>
+        </div>
+        <div class="btns-head">
+            {%if rs %}
+            <div class="btns-head proflink"><a href="{%url 'reception:reception' rs%}"><i class="fa-solid fa-user"></i></a></div>
+            {%else%}
+            <div class="btn-signin btn">
+                <a href="{%url 'logincards:sigin' %}"> <input type="button" class="btn-signup btn" value="Sign-in"></a>
+            </div>
+            <div class="btn-signup btn">
+                <a href="{%url 'registeras:register' %}"> <input type="button" class="btn-signup btn" value="Sign-up"></a>
+            </div>
+            {%endif%}
+        </div>
+    </header>
+    <div class="main-body">
+        <section class="category">
+            <div class="header-cat flex">
+                <img src="{%static 'Specialtais/imgs/filter.png' %}" alt="" srcset="">
+                <h4>Filters</h4>
+            </div>
+            <div class="container">
+                <div class="title flex"><img src="{%static 'Specialtais/imgs/grad.png' %}" alt="" srcset="">
+                    <h4>Title</h4>
+                </div>
+                <form action="">
+                    {% csrf_token %}
+                    <div class="radios">
+                        <div class="label flex">
+                            <input type="radio" name="title" id="prof" value="professor">
+                            <label for="prof">professor</label></div>
+                        <div class="label flex">
+                            <input type="radio" name="title" id="lec" value="lecture">
+                            <label for="lec">lecture</label></div>
+                        <div class="label flex">
+                            <input type="radio" name="title" id="consu" value="consultant">
+                            <label for="consu">consultant</label></div>
+                        <div class="label flex">
+                            <input type="radio" name="title" id="spec" value="specialist">
+                            <label for="spec">specialist</label></div>
+                    </div>
+                    <div class="dates flex">
+                        <img src="{%static 'Specialtais/imgs/calender.png' %}" alt="">
+                        <h4>Session date</h4>
+                    </div>
+                    <div class="dates">
+                        <div class="label flex">
+                            <input type="radio" name="date" id="Today" value="Today">
+                            <label for="Today">Today</label></div>
+                        <div class="label flex">
+                            <input type="radio" name="date" id="Tomorrow" value="tomorrow">
+                            <label for="Tomorrow">Tomorrow</label></div>
+                        <div class="label flex">
+                            <input type="radio" name="date" id="anytime" value="anytime">
+                            <label for="anytime">anytime</label></div>
+                    </div>
+                    <div class="duration flex">
+                        <img src="{%static 'Specialtais/imgs/watch.png' %}" alt="">
+                        <h4>Session duration</h4>
+                    </div>
+                    <div class="dates">
+                        <div class="label flex">
+                            <input type="radio" name="duration" id="30min" value="30min">
+                            <label for="30min">30min</label></div>
+                        <div class="label flex">
+                            <input type="radio" name="duration" id="60min" value="60min">
+                            <label for="60min">60min</label></div>
+                        <div class="label flex">
+                            <input type="radio" name="duration" id="open" value="open">
+                            <label for="open">open</label></div>
+                    </div>
+                    <div class="Gender flex">
+                        <img src="{%static 'Specialtais/imgs/Gender.png' %}" alt="">
+                        <h4>Gender</h4>
+                    </div>
+                    <div class="dates">
+                        <div class="label flex">
+                            <input type="radio" name="Gender" id="Male" value="Male">
+                            <label for="Male">Male</label></div>
+                        <div class="label flex">
+                            <input type="radio" name="Gender" id="Female" value="Female">
+                            <label for="Female">Female</label></div>
+                        <div class="label flex">
+                            <input type="radio" name="Gender" id="Both" value="Both">
+                            <label for="Both">Both</label></div>
+                    </div>
+                    <div class="examination-fee flex">
+                        <img src="{%static 'Specialtais/imgs/examination-fee.png' %}" alt="">
+                        <h4>Examin Fee</h4>
+                    </div>
+                    <div class="examination-fee-text">
+                        <input type="text" placeholder="0 eGP-2000 EGP" pattern="[0-9]+">
+                    </div>
+                    <input type="range" min="1" max="100" value="1" class="range" id="myRange">
+                    <div class="Experience flex">
+                        <img src="{%static 'Specialtais/imgs/exp.png' %}" alt="">
+                        <h4>Years Of Experience</h4>
+                    </div>
+                    <div class="examination-fee-text">
+                        <input type="text" placeholder="0 -50 years" pattern="[0-9]+">
+                    </div>
+                    <input type="range" min="0" max="50" value="10" class="range" id="myRange">
+                    <div class="Gender flex">
+                        <img src="{%static 'Specialtais/imgs/entity.png' %}" alt="">
+                        <h4>entity</h4>
+                    </div>
+                    <div class="dates">
+                        <div class="label flex">
+                            <input type="radio" name="entity" id="hospital" value="hospital">
+                            <label for="hospital">hospital</label></div>
+                        <div class="label flex">
+                            <input type="radio" name="entity" id="clinic" value="clinic">
+                            <label for="clinic">clinic</label></div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <div class="main-cards-dr">
+            {% if special%}
+                {% for doc in special %}
+                    <div class="dr-card">
+                        <div class="img">
+                            {%if doc.image %}
+                            <img id="img-doc" src="{{doc.image.url}}" alt="dr1">
+                            {%else%}
+                            <img id="img-doc" src="{%static 'specialtais/imgs/blankPro.jpg'%}" alt="dr1">
+                            {%endif%}
+                        </div>
+                        <div class="mid-details">
+                            {% if rs %}
+                                <h1 class="dr-name"><a href="{%url 'patientlogin:doctorRE' rs doc.email_recption %}">  {{doc.name}}  </a> </h1>
+                            {% else %}
+                            <h1 class="dr-name"><a href="{%url 'patientlogin:doctor' doc.email_recption %}">  {{doc.name}}  </a> </h1>
+                            {% endif %}
+                            <h2 class="specialt">{{doc.specialist}}</h2>
+                            <p>{{doc.years_of_experience}} years experience <br> <i class="fa-solid fa-location-dot"></i> {{doc.location}}</p>
+                            <img src="{%static 'Specialtais/imgs/Stars.svg'%}" alt="">
+                        </div>
+                        <div class="right-details">
+                            <h1>Next available session</h1>
+                            <div class="time-calender">
+                                <img src="{%static 'Specialtais/imgs/calender.svg'%}" alt="calender">
+                                <div class="timer">
+                                    <div class="session"> <i class="fa-regular fa-clock"></i>10:00 PM - 10:30PM</div> <br>
+                                    <div class="price">{{doc.price}} EGP / 30 Min</div>
+                                </div>
+                            </div>
+                            <form method="POST">
+                                {% csrf_token %}
+                            {%if rs%}
+                    <input type="submit" value="Book session" name="" class="btn">
+                    {%else%}
+                        <a href="{%url 'logincards:sigin' %}"><input type="submit" value="Book session" name="" class="btn"></a>
+                    {%endif%}
+                            </form>
+                        </div>
+                    </div>
+                {%endfor%}
+            {% else %}
+            {%for r in rs2%}
+            <div class="dr-card">
+                <div class="img">
+                    {%if r.image %}
+                    <img id="img-doc" src="{{r.image.url}}" alt="dr1">
+                    {%else%}
+                    <img id="img-doc" src="{%static 'specialtais/imgs/blankPro.jpg'%}" alt="dr1">
+                    {%endif%}
+                </div>
+                <div class="mid-details">
+                    {% if rs %}
+                        <h1 class="dr-name"><a href="{%url 'patientlogin:doctorRE' rs r.email_recption %}">  {{r.name}}  </a> </h1>
+                    {% else %}
+                        <h1 class="dr-name"><a href="{%url 'patientlogin:doctor' r.email_recption %}">  {{r.name}}  </a> </h1>
+                    {% endif %}
+                    <h2 class="specialt">{{r.specialist}}</h2>
+                    <p>{{doc.years_of_experience}} years experience <br> <i class="fa-solid fa-location-dot"></i> {{r.location}}</p>
+                    <img src="{%static 'Specialtais/imgs/Stars.svg'%}" alt="">
+                </div>
+                <div class="right-details">
+                    <h1>Next available session</h1>
+                    <div class="time-calender">
+                        <img src="{%static 'Specialtais/imgs/calender.svg'%}" alt="calender">
+                        <div class="timer">
+                            <div class="session"> <i class="fa-regular fa-clock"></i>10:00 PM - 10:30PM</div> <br>
+                            <div class="price">{{r.price}} EGP / 30 Min</div>
+                        </div>
+                    </div>
+                    <form method="POST">
+                        {% csrf_token %}
+                    {%if rs%}
+                    <input type="submit" value="Book session" name="" class="btn">
+                    {%else%}
+                        <a href="{%url 'logincards:sigin' %}"><input type="submit" value="Book session" name=""class="btn"></a>
+                    {%endif%}
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+    
+        </div>
+
+    </div>
+    <div class="dots-slider">
+        <div class="left-arrow arrow"> <img src="./imgs/left-arrow.svg" alt=""></div>
+        <div class="dot-active dots"></div>
+        <div class="dots"></div>
+        <div class="dots"></div>
+        <div class="dots"></div>
+        <div class="dots"></div>
+        <div class="right-arrow arrow"> <img src="./imgs/right-arrow.svg" alt=""></div>
+    </div>
+    <footer>
+        <div class="footer container">
+            <div class="left-foot">
+                <div class="logo_cont logo-foot">
+                    <a href="Home.html">
+                        <div class="logo logos-foot"></div>
+                    </a>
+                    <div class="logoh1">
+                        {%if rs%}
+                        <h1><a href="{%url 'patientlogin:home' rs%}"> Med</a></h1>
+                        <h2><a href="{%url 'patientlogin:home' rs%}">care</a></h2>
+                        {%else%}
+                        <h1><a href="{%url 'Home:Home' %}"> Med</a></h1>
+                        <h2><a href="{%url 'Home:Home' %}">care</a></h2>
+                        {%endif%}
+                    </div>
+                </div>
+                <p>This text is an example of text that can <br> be replaced in the same space, this
+                </p>
+                <div class="contact-us">
+                    <h1>contact us</h1>
+                    <ul>
+                        <li>
+                            <a href="">
+                                <i class="fa-brands fa-facebook-f"></a></i>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa-brands fa-whatsapp"></a></i>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa-brands fa-twitter"></a></i>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa-brands fa-github"></a></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mid-foot">
+                <ul class="foot-links">
+                    <ul class="foot-links">
+                        {%if rs%}
+                        <li><a href="{%url 'patientlogin:home' rs%}">Home</a></li>
+                        <li><a href="{% url 'patientlogin:cards' rs %}">Specialities</a></li>
+                        <li><a href="{%url 'ai:consult' rs%}">Consultation</a></li>
+                        {%else%}
+                        <li><a href="{%url 'Home:Home'%}"> Home</a></li>
+                        <li><a href="{%url 'patientlogin:cardsUnRe'%}">Specialities</a></li>
+                        <li><a href="{%url 'ai:consultUN' %}">Consultation</a></li>
+                        {%endif%}
+                        
+                        {% if rs %}
+                        <li><a href="{%url 'reception:reception' rs%}">Profile</a></li>
+                        <li><a href="{%url 'news:newsRE' rs%} ">News</a></li>
+                        {%else%}
+                        <li><a href="{%url 'news:news'%}">News</a></li>
+                        {%endif%}
+                        <li><a href="#">Hospital</a></li>
+                    </ul>
+            </div>
+            <div class="right-foot">
+                <h1>Download The App Now</h1>
+                <div class="down-foot">
+                    <div class="qr-codes">
+                        <img src=" {% static 'Home/imgs/Frame.png' %} " style="    width: 138px;
+                    height: 138px;
+                " alt="">
+                    </div>
+                    <div class="download-cards">
+                        <div class="googleplay-card downcard">
+                            <div class="left-img-downcard">
+                                <img src="{% static 'Home/imgs/svgexport-6 (21) 1.png'%}" alt=""></div>
+                            <div class="right-text-downcard">
+                                <p>Get it on</p>
+                                <h1>google play</h1>
+                            </div>
+                        </div>
+                        <div class="apple-card downcard">
+                            <div class="left-img-downcard">
+                                <img src="{% static 'Home/imgs/svgexport-6 (24) 1.png'%}" alt=""></div>
+                            <div class="right-text-downcard">
+                                <p>downlaod on the</p>
+                                <h1>app store</h1>
+                            </div>
+                        </div>
+                        </div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy-right">
+            <h3> 2022 medcare all rights reserved</h3>
+        </div>
+    </footer>
+
+</body>
+</html>

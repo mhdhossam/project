@@ -1,0 +1,19 @@
+ /* RWD=> responsive web design */
+ /* Tablet */
+ @media screen and (max-width:979px) and (min-width:768px) {
+     .item {
+         width: 33%;
+     }
+ }
+ /* Large Phone land */
+ @media screen and (max-width:767px) and (min-width:501px) {
+     .item {
+         width: 50%;
+     }
+ }
+ /* Small Phone */
+ @media screen and (max-width:500px) {
+     .item {
+         width: 100%;
+     }
+ }

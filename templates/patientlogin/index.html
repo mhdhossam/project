@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+    <link rel="stylesheet" href="{%static 'patientlogin/css files/style.css' %}">
+    <link rel="stylesheet" href="{%static 'patientlogin/css files/all.min.css' %}">
+    <link rel="stylesheet" href="{%static 'patientlogin/css files/normalize.css' %}">
+    <!-- Start Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;900&family=Josefin+Sans:wght@300&family=Open+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,400;0,600;0,800;1,200;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <!--Ends Google Fonts -->
+    <!-- Start icon awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- End icon awesome -->
+
+
+
+</head>
+
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="header">
+            <div class="container">
+                <img src="{%static 'patientlogin/imges/logo.png' %}" alt="">
+                {%if rs%}
+                <h2><a href="{%url 'patientlogin:home' rs%}"> Med</a> <span><a
+                    href="{%url 'patientlogin:home' rs%}">care</a></span>
+                </h2>
+                {%else%}
+                <h2><a href="{%url 'Home:Home' %}"> Med</a> <span><a href="{%url 'Home:Home' %}">care</a></span>
+                </h2>
+                {%endif%}
+            </div>
+        </div>
+
+        <div class="landing">
+            <div class="container">
+                <div class="text">
+                    <h1>Sign in</h1>
+                    <p>Please enter your details</p>
+                </div>
+
+            </div>
+            <div class="form">
+                <div class="input-box">
+                    <input type="email" name="email" required="required">
+                    <span><i class="fa-solid fa-envelope"></i>Email</span>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="password" required="required"id="myInput">
+                    <span><i class="fa-solid fa-lock"></i>Password</span>
+                </div>
+                <h3 style="margin: 10px 5px; color:#2681b7;">
+                   
+                    {% for message in messages %}
+                    <p>{{message}}</p>
+                    
+                     {% endfor %} 
+                  
+                     
+                     
+                    
+                </h3>
+            </div>
+            <div class="form2">
+                <input type="checkbox" onclick="myFunction()">
+                <label class="lable" for="Remember" > Show Password</label>
+        
+            </div>
+            <div class="social">
+                <p>OR</p>
+                <div class="social-media">
+                    <a href="#"><i class="fa-brands fa-google"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+            <div class="create">
+                <input type="submit" class="btn" value="sign in">
+                <div class="info">
+                    <p>I dont have an account ? </p>
+                    <a href="{%url 'registeras:register' %}">create Account</a>
+                </div>
+
+            </div>
+
+
+            <div class="land">
+                <div class="text">
+                    <h1>welcome back</h1>
+                    <p>In the largest gathering of<br> doctors in all specialties.</p>
+                </div>
+                <div class="img">
+                    <img src="{%static 'patientlogin/imges/Login1.png' %}" alt="">
+                </div>
+            </div>
+
+        </div>
+    </form>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myInput");
+    
+            if (x.type === "password") {
+              x.type = "text";
+            } else {
+              x.type = "password";
+            }
+          }
+    </script>
+
+</body>
+
+</html>

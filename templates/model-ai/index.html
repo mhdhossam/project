@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+    {%load static%}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultation</title>
+    <link rel="stylesheet" href="{% static 'model-ai/css2/all.css'%}">
+    <link rel="stylesheet" href="{% static 'model-ai/css2/style1.css'%}">
+     <link rel="stylesheet" href="{% static 'model-ai/css2/Style.css'%}"> 
+    <link rel="stylesheet" href="{% static 'model-ai/css2/all.min.css'%}">
+    <link rel="stylesheet" href="{% static 'model-ai/css2/normalize.css'%}">
+    <!-- <link rel="stylesheet" href="{%static  'model-ai/css2/all.min.css'%}">
+    <link rel="stylesheet" href="{% static 'model-ai/css2/normalize.css'%}"> -->
+    <!-- <link rel="stylesheet" href="{% static 'model-ai/css2/consaltation.css'%}"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;900&family=Josefin+Sans:wght@300&family=Open+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,400;0,600;0,800;1,200;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;900&family=Josefin+Sans:wght@300&family=Open+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,400;0,600;0,800;1,200;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="{% static 'Home/fontawesome-free-6.2.0-web/css/all.css'%}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <link rel="preconnect"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"> 
+</head>
+
+<body>
+    <header class="container">
+        <div class="logo_cont">
+            
+               <div class="logo">
+                 <img src="{%static 'model-ai/images/logo.png' %}" alt="">
+                </div>
+        
+            <div class="logoh1">
+                {%if rs%}
+                <h1><a href="{%url 'patientlogin:home' rs%}"> Med</a><span><a href="{%url 'patientlogin:home' rs%}">care</a></span></h1>
+                
+                {%else%}
+                <h1><a href="{%url 'Home:Home' %}"> Med</a><span><a href="{%url 'Home:Home' %}">care</a><span></h1>
+                
+                {%endif%}
+            </div>
+        </div>
+       
+            
+            
+            <ul>
+                {%if rs%}
+                <div class="headlinkss">
+                    <ul>
+                <li><a href="{%url 'patientlogin:home' rs%}">Home</a></li>
+                <li><a href="{% url 'patientlogin:cards' rs %}">Specialities</a></li>
+                <li>
+                    
+                    </div> 
+                    <div class="dropdown"> 
+                <a href="{%url 'ai:consult' rs%}">
+                    <p class="dropbtn activatedd">Consultation</p>
+                </a>
+                <div class="dropdown-content headlinks">
+                    {% if rs %}
+                    <a href="{%url 'ai:aiHeart' rs %}">Heart Consultation</a>
+                    <a href="{%url 'ai:aiDiabetes' rs %}">Diabetes Consultation</a>
+                    {%else%}
+                    <a href="{%url 'ai:aiUnReHeart'  %}">Heart Consultation</a>
+                    <a href="{%url 'ai:aiUnReDiabetes'  %}">Diabetes Consultation</a>
+                    {%endif%}
+                </div>
+            </div>
+            </li>
+            </ul>
+                {%else%}
+                <div class="headlinks">
+            
+            
+                    <ul>
+                <li><a href="{%url 'Home:Home'%}"> Home</a></li>
+                <li><a href="{%url 'patientlogin:cardsUnRe'%}">Specialities</a></li>
+            
+                <li></div> 
+                
+                    <div class="dropdown">
+                    <a href="{%url 'ai:consultUN' %}">
+                        <p class="dropbtn activated">Consultation</p>
+                    </a>
+                    <div class="dropdown-content headlinks">
+                        {% if rs %}
+                        <a href="{%url 'ai:aiHeart' rs %}">Heart Consultation</a>
+                        <a href="{%url 'ai:aiDiabetes' rs %}">Diabetes Consultation</a>
+                        {%else%}
+                        <a href="{%url 'ai:aiUnReHeart'%}">Heart Consultation</a>
+                        <a href="{%url 'ai:aiUnReDiabetes'%}">Diabetes Consultation</a>
+                    {%endif%}
+                    </div>
+                  </div>
+                </li>
+                
+                    
+                 </ul> 
+                {%endif%}
+                
+                {% if rs %}
+                <div class="headlinkss">
+                    <ul>
+                        <li><a href="{%url 'reception:reception' rs%}">Profile</a></li>
+                        <li><a href="{%url 'news:newsRE' rs%}">News</a></li>
+                        <li><a href="#">Hospital</a></li>
+                    </ul></div>
+                
+                {%else%}
+                <div class="headlinkss">
+                    <ul>
+                        <li><a href="{%url 'news:news'%}">News</a></li>
+                    <li><a href="#">Hospital</a></li>
+                    </ul>
+                </div>
+                {%endif%}
+
+        {% if rs %}
+        <div class="btns-head proflink"><a href="{%url 'reception:reception' rs%}"><i class="fa-solid fa-user"></i></a></div>
+        {%else%}
+        <div class="btns-head">
+            <div class="btn-signin btn">
+                <a href="{%url 'logincards:sigin' %}"> <input type="button" class="btn-signup btn" value="Sign-in"></a>
+            </div>
+            <div class="btn-signup btn">
+                <a href="{%url 'registeras:register' %}"> <input type="button" class="btn-signup btn" value="Sign-up"></a>
+            </div>
+        </div>
+       {%endif%}
+    </header>
+    <div class="ai">
+        <div class="text">
+            <h1>About Health Care</h1>
+            <p>global health is the need for better health care that is effective, affordable, and accessible. The
+                current system is not working to provide this care, which has direct and indirect effects on heart
+                disease.
+                <br>
+                The main problem with the current system is that it is not efficient in getting the care that is
+                effective and affordable for heart disease. This is because there is no one rate for care, and it is
+                difficult to see the same service reach everyone. There is also the issue of who gets treated with the
+                care, which can be difficult to see.
+                <br>
+                There are many ways to improve the current system, including developing a single rate for heart disease
+                care that is effective, affordable, and accessible. Additionally, more money should be put into research
+                to improve the quality of care so that it is more effective and efficient. Lastly, more money should be
+                put into developing new technologies that can improve the quality of care.
+            </p>
+        </div>
+        <div class="img">
+            <img src="{% static 'model-ai/images/ai-img.jpg'%}" alt="">
+        </div>
+    </div>
+<div class="btnnn">
+    <h1 >select your consultation choise:</h1>
+    {% if rs %}
+    <a href="{%url 'ai:aiHeart' rs %}"><input type="button" class="butt" value="Heart " style="margin: 5px 10px;"></a>
+    <a href="{%url 'ai:aiDiabetes' rs %}"><input type="button" class="butt" value="Diabetes "style="margin: 5px 10px;"></a>
+    {%else%}
+    <a href="{%url 'ai:aiUnReHeart'%}"><input type="button" class="butt" value="Heart " style="margin: 5px 10px;"></a>
+    <a href="{%url 'ai:aiUnReDiabetes'%}"><input type="button" class="butt" value="Diabetes "style="margin: 5px 10px;"></a>
+    {%endif%}
+</div>
+
+<footer>
+    <div class="footer container">
+        <div class="left-foot">
+            <div class="logo_cont logo-foot">
+                <a href="Home.html">
+                    <div class="logoo">
+                        <img src="{%static 'model-ai/images/6 2[Converted] 1.png' %}" alt="">
+                    </div>
+                </a>
+                <div class="logoh1">
+                    {%if rs%}
+                    <h1><a href="{%url 'patientlogin:home' rs%}"> Med</a></h1>
+                    <h2><a href="{%url 'patientlogin:home' rs%}">care</a></h2>
+                    {%else%}
+                    <h1><a href="{%url 'Home:Home' %}"> Med</a></h1>
+                    <h2><a href="{%url 'Home:Home' %}">care</a></h2>
+                    {%endif%}
+                </div>
+            </div>
+            <p>This text is an example of text <br> that can <br> be replaced in the same space, <br> this
+            </p>
+            <div class="contact-us">
+                <h1>Contact Us</h1>
+                <ul>
+                    <li>
+                        <a href="">
+                            <i class="fa-brands fa-facebook-f"></a></i>
+                    </li>
+                    <li>
+                        <a href=""><i class="fa-brands fa-whatsapp"></a></i>
+                    </li>
+                    <li>
+                        <a href=""><i class="fa-brands fa-twitter"></a></i>
+                    </li>
+                    <li>
+                        <a href=""><i class="fa-brands fa-github"></a></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="mid-foot">
+            <ul class="foot-links">
+                {%if rs%}
+                <li><a href="{%url 'patientlogin:home' rs%}">Home</a></li>
+                <li><a href="{% url 'patientlogin:cards' rs %}">Specialities</a></li>
+                <li><a href="{%url 'ai:consult' rs%}">Consultation</a></li>
+                {%else%}
+                <li><a href="{%url 'Home:Home'%}"> Home</a></li>
+                <li><a href="{%url 'patientlogin:cardsUnRe'%}">Specialities</a></li>
+                <li><a href="{%url 'ai:consultUN' %}">Consultation</a></li>
+                {%endif%}
+                
+                {% if rs %}
+                <li><a href="{%url 'reception:reception' rs%}">Profile</a></li>
+                <li><a href="{%url 'news:newsRE' rs%} ">News</a></li>
+                {%else%}
+                <li><a href="{%url 'news:news'%}">News</a></li>
+                {%endif%}
+                <li><a href="#">Hospital</a></li>
+            </ul>
+        </div>
+        <div class="right-foot">
+            <h2>Download The App Now</h2>
+            <div class="down-foot">
+                <div class="qr-codes"></div>
+                <div class="download-cards">
+                    <div class="googleplay-card downcard">
+                        <div class="left-img-downcard">
+                            <img src="{% static 'Home/imgs/svgexport-6 (21) 1.png'%}" alt=""></div>
+                        <div class="right-text-downcard">
+                            <p>Get It On</p>
+                            <h1>Google Play</h1>
+                        </div>
+                    </div>
+                    <div class="apple-card downcard">
+                        <div class="left-img-downcard">
+                            <img src="{% static 'Home/imgs/svgexport-6 (24) 1.png'%}" alt=""></div>
+                        <div class="right-text-downcard">
+                            <p>Downlaod On The</p>
+                            <h1>App Store</h1>
+                        </div>
+                    </div>
+                    </div>
+                 </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copy-right">
+        <h3> 2022 Medcare All Rights Reserved</h3>
+    </div>
+</footer>
+
+</body>
+
+</html>

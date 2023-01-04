@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>diabetes Consultation</title>
+   
+     <link rel="stylesheet" href="./css2/style1.css"> 
+     <link rel="stylesheet" href="{% static 'Home/fontawesome-free-6.2.0-web/css/all.css'%}">
+    <link rel="stylesheet" href="{% static 'model-ai/css2/style1.css'%}">
+    <link rel="stylesheet" href="{% static 'model-ai/css2/Style.css'%}">
+    <link rel="stylesheet" href="{%static  'model-ai/css2/all.min.css'%}">
+    <link rel="stylesheet" href="{% static 'model-ai/css2/normalize.css'%}">
+    <link rel="stylesheet" href="{% static 'model-ai/css2/consaltation.css'%}">
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;900&family=Josefin+Sans:wght@300&family=Open+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,400;0,600;0,800;1,200;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;900&family=Josefin+Sans:wght@300&family=Open+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,400;0,600;0,800;1,200;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../fontawesome-free-6.2.0-web/css/all.css">
+    <link rel="stylesheet" href="{% static 'fontawesome-free-6.2.1-web/css/all.css'%}">
+</head>
+
+<body>
+    <header class="container">
+        <div class="logo_cont">
+            
+               <div class="logo">
+                 <img src="{%static 'model-ai/images/logo.png' %}" alt="">
+                </div>
+        
+            <div class="logoh1">
+                {%if rs%}
+                <h1><a href="{%url 'patientlogin:home' rs%}"> Med</a><span><a href="{%url 'patientlogin:home' rs%}">care</a></span></h1>
+                
+                {%else%}
+                <h1><a href="{%url 'Home:Home' %}"> Med</a><span><a href="{%url 'Home:Home' %}">care</a><span></h1>
+                
+                {%endif%}
+            </div>
+        </div>
+       
+            
+            
+            <ul>
+                {%if rs%}
+                <div class="headlinkss">
+            
+            
+                    <ul>
+                <li><a href="{%url 'patientlogin:home' rs%}">Home</a></li>
+                <li><a href="{% url 'patientlogin:cards' rs %}">Specialities</a></li>
+                <li>
+                     
+                     </div> 
+                     <div class="dropdown"> 
+                <a href="{%url 'ai:consult' rs%}">
+                    <p class="dropbtn activatedd">Consultation</p>
+                </a>
+                <div class="dropdown-content headlinks">
+                    {% if rs %}
+                    <a href="{%url 'ai:aiHeart' rs %}">Heart Consultation</a>
+                    <a href="{%url 'ai:aiDiabetes' rs %}">Diabetes Consultation</a>
+                    {%else%}
+                    <a href="{%url 'ai:aiUnReHeart'  %}">Heart Consultation</a>
+                    <a href="{%url 'ai:aiUnReDiabetes'  %}">Diabetes Consultation</a>
+                    {%endif%}
+                </div>
+              </div>
+            </li>
+            </ul>
+                {%else%}
+                <div class="headlinks">
+            
+            
+                    <ul>
+                <li><a href="{%url 'Home:Home'%}"> Home</a></li>
+                <li><a href="{%url 'patientlogin:cardsUnRe'%}">Specialities</a></li>
+            
+                <li></div> 
+                   
+                    <div class="dropdown">
+                    <a href="{%url 'ai:consultUN' %}">
+                        <p class="dropbtn activated">Consultation</p>
+                    </a>
+                    <div class="dropdown-content headlinks">
+                        {% if rs %}
+                        <a href="{%url 'ai:aiHeart' rs %}">Heart Consultation</a>
+                        <a href="{%url 'ai:aiDiabetes' rs %}">Diabetes Consultation</a>
+                        {%else%}
+                        <a href="{%url 'ai:aiUnReHeart'%}">Heart Consultation</a>
+                        <a href="{%url 'ai:aiUnReDiabetes'%}">Diabetes Consultation</a>
+                    {%endif%}
+                    </div>
+                  </div>
+                </li>
+                <div class="headlinks">
+                 <ul>
+                     <li><a href="{%url 'news:news'%}">News</a></li>
+                     <li><a href="#">Hospital</a></li>
+                 </ul></div>
+                    
+                 </ul> 
+                {%endif%}
+                
+                {% if rs %}
+                <div class="headlinkss">
+                    <ul>
+                        <li><a href="{%url 'reception:reception' rs%}">Profile</a></li>
+                        <li><a href="{%url 'news:newsRE' rs%}">News</a></li>
+                        <li><a href="#">Hospital</a></li>
+                    </ul></div>
+                
+                {%else%}
+                {%endif%}
+
+
+        {% if rs %}
+        <div class="btns-head proflink"><a href="{%url 'reception:reception' rs%}"><i class="fa-solid fa-user"></i></a></div>
+        {%else%}
+        <div class="btns-head">
+            <div class="btn-signin btn">
+                <a href="{%url 'logincards:sigin' %}"> <input type="button" class="btn-signup btn" value="Sign-in"></a>
+            </div>
+            <div class="btn-signup btn">
+                <a href="{%url 'registeras:register' %}"> <input type="button" class="btn-signup btn" value="Sign-up"></a>
+            </div>
+        </div>
+       {%endif%}
+    </header>
+    <div class="container">
+        <div class="cont1">
+            <div class="form1">
+                <form method="POST" class="diabetes">
+                    {% csrf_token %}
+                    <input type="number" required placeholder="age2" name="age2" class="in1" step="0.001">
+                    <input type="number" required placeholder="Pregnancies" name="Pregnancies" class="in2" step="0.001">
+                    <br>
+                    <input type="number" required placeholder="Glucose" name="Glucose" class="in1" step="0.001">
+                    <input type="number" required placeholder="BloodPressur" name="BloodPressur" class="in2" step="0.001">
+                    <br>
+                    <input type="number" required placeholder="SkinThickness" name="SkinThickness" class="in1" step="0.001">
+                    <input type="number" required placeholder="Insulin" name="Insulin" class="in2" step="0.001">
+                    <br>
+                    <input type="number" required placeholder="BMI" name="BMI" class="in1" step="0.001">
+                    <input type="number" required placeholder="DPFunction" name="DPFunction" class="in2" step="0.001"> <br>
+                    <input type="submit" value="consult" class="btnn"><br><br><br><br>
+                    <h2>{{rs2}}</h2>
+                </form>
+               
+            </div>
+    
+
+        </div>
+        
+    </div>
+
+</body>
+
+</html>

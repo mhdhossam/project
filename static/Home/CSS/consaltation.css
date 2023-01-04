@@ -1,0 +1,59 @@
+.linking{
+    text-decoration: none;
+    color:black;
+}
+.popup{
+    position: fixed;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    border: 1px solid #f1f1f1 ;
+    z-index: 9;
+    padding: 7px 5px;
+    /* display: none; */
+}
+#close{
+    position: absolute;
+    left: 95%;
+    top: 1px;
+    color: white;
+    background-color: red;
+    padding: 3px;
+    font-size: 18px;
+    z-index: -1;
+    font-weight: bold;
+    cursor: pointer;
+}
+#back{
+    position: absolute;
+    top: 1px;
+    color: white;
+    background-color: rgb(79, 245, 63);
+    padding: 3px 0px;
+    font-size: 18px;
+    z-index: -1;
+    font-weight: bold;
+}
+#close:hover , #back:hover{
+    cursor: pointer;
+}
+#diabetes{
+    
+}
+
+#diabetes a{
+    font-weight: bold;
+    padding: 5px;
+}
+input[type ="text"]{
+    width: 75px;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 2px;
+}
+
+input[type="submit"]{
+    left: 40%;
+    bottom: 1px;
+    position: absolute;
+}

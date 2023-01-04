@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <link rel="stylesheet" href="{%static 'register medicalprovider/css/design.css' %}">
+    <link rel="stylesheet" href="{%static 'register medicalprovider/css/normalize.css' %}">
+    <link rel="stylesheet" href="{%static 'register medicalprovider/css/all.min.css' %}">
+    
+</head>
+
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="cont-header">
+            <div class="cont">
+                <div class="images">
+                    <img src="{%static 'register medicalprovider/image/logo.png' %}" alt="">
+                </div>
+                <div class="text">
+                    {%if rs%}
+                    <h2><a href="{%url 'patientlogin:home' rs%}"> Med</a> <span><a
+                        href="{%url 'patientlogin:home' rs%}">care</a></span>
+                    </h2>
+                    {%else%}
+                    <h2><a href="{%url 'Home:Home' %}"> Med</a> <span><a href="{%url 'Home:Home' %}">care</a></span>
+                    </h2>
+                    {%endif%}                </div>
+            </div>
+
+
+            <div class="container-1">
+                    <div class="title">
+                        <div class="info">
+                            <h1>create account</h1>
+                            <h5>Enter your personal info </h5>
+                        </div>
+                    </div>
+
+                    <div class="input-1">
+                        <div class="div-1">
+                            <input class="input-field" type="text" name="first_name" required="required">
+                            <span><i class="fa fa-user icon"></i> First name</span>
+                        </div>
+                        <div class="div-1">
+                            <input class="input-field" type="text" name="last_name" required="required">
+                            <span> <i class="fa fa-user icon"></i>last name</span>
+                        </div>
+                        <div class="div-1">
+            
+                            <select name="gender">
+                              <option disabled selected>Gender</option>
+                              <option value="Male">Male</option>
+                              <option value="Female">Female</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="input-2">
+                        <div class="div-2">
+                            <input class="input-field" type="text" name="age" required="required">
+                            <span><i class="fa-regular fa-calendar-days"></i>Age</span>
+
+                        </div>
+                        <div class="div-2">
+                            <input class="input-field" type="text" name="mobilenumber" required="required">
+                            <span> <i class="fa-solid fa-phone"></i>Mobile number</span>
+
+                        </div>
+                        <div class="div-2">
+                            <input class="input-field" type="text" name="address" required="required">
+                            <span><i class="fa-solid fa-location-dot"></i> Adress</span>
+
+                        </div>
+                    </div>
+                    <div class="input-3">
+                        <div class="div-3">
+                            <input class="input-field" type="email" name="email" required="required">
+                            <span><i class="fa-regular fa-envelope"></i>Email</span>
+
+                        </div>
+                        <div class="div-3">
+                            <input class="input-field" type="password" name="password" required="required">
+                            <span><i class="fa-solid fa-lock"></i>Password</span>
+
+                        </div>
+                        <div class="div-3">
+                            <input class="input-field" type="password" name="confirmpassword" required="required">
+                            <span><i class="fa-solid fa-lock"></i>Confirm password</span>
+
+                        </div>
+                    </div>
+                    <div class="input-4">
+                        <div class="div-4">
+                            <input class="input-field" type="text" name="NationalId" required="required">
+                            <span><i class="fa-solid fa-id-card"></i>National Id</span>
+
+                        </div>
+                        <div class="div-5">
+                            <select name="choosemedicalprovider">
+                              <option disabled selected>choose medical provider</option>
+                              <option value="Lab">lab</option>
+                              <option value="Hospital">hospital</option>
+                              <option value="Clinic">clinic</option>
+                              </select>
+                        </div>
+
+                    </div>
+                
+            </div>
+            <form class="form">
+                <input type="submit" class="btn" value="Next">
+            </form>
+        </div>
+    </form>
+    <script src="{%static 'register medicalprovider/js/js.js' %}"></script>
+</body>
+
+</html>
